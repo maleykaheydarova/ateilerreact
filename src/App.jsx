@@ -1,4 +1,3 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AiFillAlert } from "react-icons/ai";
 
