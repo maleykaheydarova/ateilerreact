@@ -1,6 +1,7 @@
 import LinkRouter from './router/LinkRouter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../node_modules/@fortawesome/fontawesome-free/css/solid.min.css"
+import "../node_modules/@fortawesome/fontawesome-free/css/brands.min.css"
 import "../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"
 import "./assets/scss/main.scss"
 
