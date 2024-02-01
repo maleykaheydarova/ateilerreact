@@ -1,0 +1,97 @@
+.item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s, transform 0.8s;
+    z-index: inherit;
+  }
+  
+  .swiper-area {
+    .swiper {
+      .swiper-pagination-bullet-active {
+        background-color: #222;
+      }
+  
+      width: 100%;
+  
+      .slider-ateiler {
+        height: 452px;
+        width: 100%;
+        background-image: url(https://atelier.swiftideas.com/wp-content/uploads/2015/04/slider_bkg_look.jpg);
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+              .slider-opac{
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  background-color: rgba(0, 0, 0, 0.1);
+              }
+  
+        .slider-text {
+          font-size: 24px;
+          color: #fff;
+  
+          p {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+            font-weight: 600;
+  
+            @media (min-width: 768px) {
+              font-size: 50px;
+            }
+          }
+        }
+  
+              
+          }
+  
+      .slider-workshop {
+        height: 452px;
+        width: 100%;
+        background-image: url(https://atelier.swiftideas.com/wp-content/uploads/2014/09/about-compass-lrg.jpg);
+        background-position: center center;
+        background-size: cover;
+  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        img {
+          width: 50%;
+          object-fit: contain;
+  
+          @media (min-width: 600px) {
+            width: 30%;
+          }
+        }
+      }
+  
+      .slider-achil {
+        height: 452px;
+        width: 100%;
+        background-image: url(https://atelier.swiftideas.com/wp-content/uploads/2014/11/slider_bkg_shoes2_small.jpg);
+        background-position: center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+  
+        a {
+          display: inline-block;
+        }
+  
+        .slider-title {
+          font-size: 24px;
+  
+          @media (min-width: 768px) {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
