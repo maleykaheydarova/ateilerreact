@@ -1,10 +1,11 @@
 import React from 'react'
-import HomeSwiper from './HomeSwiper'
+// import HomeSwiper from './HomeSwiper'
 
 
 const Home = () => {
   return (
-   <HomeSwiper/>
+  //  <HomeSwiper/>
+  <></>
   )
 }
 
