@@ -5,9 +5,7 @@ import React from 'react'
 const Home = () => {
   return (
   //  <HomeSwiper/>
-  <div>
-    
-  </div>
+  <></>
   )
 }
 

@@ -1,5 +1,11 @@
 import React from 'react'
-
+import Logo from '../../assets/img/atelier-logo-alt2-dark.png';
+import Post from '../../assets/img/alvar-demo.jpg';
+import Post1 from '../../assets/img/rebel-demo.jpg';
+import Post2 from '../../assets/img/vario-demo.jpg';
+import Post3 from '../../assets/img/porter-demo.jpg';
+import Post4 from '../../assets/img/flock-demo.jpg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -23,7 +29,7 @@ const Header = () => {
               class="d-none d-lg-flex d-flex justify-content-between align-items-center gap-4"
             >
               <li class="homehover">
-                <a href="index.html" class="hover-link">Home</a>
+                <Link to="/" class="hover-link">Home</Link>
 
                 <ul class="homehoverin">
                   <li class="d-flex gap-5">
@@ -45,7 +51,7 @@ const Header = () => {
                 </ul>
               </li>
               <li class="shopStylesHover">
-                <a href="shop.html" class="hover-link">Shop Styles</a>
+                <Link to="/shop" class="hover-link">Shop Styles</Link>
                 <ul class="shopStylesHoverin">
                   <li class="d-flex justify-content-evenly">
                     <ul class="d-flex flex-column gap-3 pt-3">
@@ -170,7 +176,7 @@ const Header = () => {
             <div>
               <a href="#"
                 ><img
-                  src={require("../../assets/img/atelier-logo-alt2-dark.png")}
+                  src={Logo}
                   alt=""
                 />
               </a>
@@ -203,7 +209,7 @@ const Header = () => {
                     </ul>
                     <ul class="d-flex flex-column gap-3 pt-3">
                       <li><a href="#">Blog</a></li>
-                      <li><a href="half.html">Half/Half Split</a></li>
+                      <li><Link to="/half">Half/Half Split</Link></li>
                       <li><a href="#">Half / Half Split Alt</a></li>
                       <li><a href="#">Standard with sideba</a></li>
                       <li><a href="#">Standard Alt with side</a></li>
@@ -217,7 +223,7 @@ const Header = () => {
                       <li><a href="#">Masonry Wrapped</a></li>
                       <li><a href="#">Standard Blog Post</a></li>
                       <li><a href="#">Detailed Blog Post</a></li>
-                      <li><a href="half.html">Half / Half Split Post</a></li>
+                      <li><Link to="/half">Half / Half Split Post</Link></li>
                     </ul>
                     <ul class="d-flex flex-column gap-3 pt-3">
                       <li><a href="#">Portfolio</a></li>
@@ -304,31 +310,31 @@ const Header = () => {
                   <li class="d-flex justify-content-evenly align-items-center">
                     <ul class="d-flex flex-column align-items-center gap-3">
                       <li>
-                        <img src="./src/assets/img/alvar-demo.jpg" alt="" />
+                        <img src={Post} alt="" />
                       </li>
                       <li><a href="#">Alvar EDD</a></li>
                     </ul>
                     <ul class="d-flex flex-column align-items-center gap-3">
                       <li>
-                        <img src="./sass/assets/img/rebel-demo.jpg" alt="" />
+                        <img src={Post1} alt="" />
                       </li>
                       <li><a href="#">Rebel T-shirts</a></li>
                     </ul>
                     <ul class="d-flex flex-column align-items-center gap-3">
                       <li>
-                        <img src="./sass/assets/img/vario-demo.jpg" alt="" />
+                        <img src={Post2} alt="" />
                       </li>
                       <li><a href="#">Vario Preview Slider</a></li>
                     </ul>
                     <ul class="d-flex flex-column align-items-center gap-3">
                       <li>
-                        <img src="./sass/assets/img/porter-demo.jpg" alt="" />
+                        <img src={Post3} alt="" />
                       </li>
                       <li><a href="#">Porter Furniture</a></li>
                     </ul>
                     <ul class="d-flex flex-column align-items-center gap-3">
                       <li>
-                        <img src="./sass/assets/img/flock-demo.jpg" alt="" />
+                        <img src={Post4} alt="" />
                       </li>
                       <li><a href="#">Flock Furniture</a></li>
                     </ul>
@@ -345,11 +351,11 @@ const Header = () => {
           </div>
           <div class="col-2 d-flex justify-content-evenly">
             <div class="shopicon d-flex gap-2 align-items-center">
-              <a href="cart.html" class="position-relative">
+              <Link to="/cart" class="position-relative">
                 <i class="fa-solid fa-cart-shopping fa-xl"></i>
                 <p class="cart-count">0</p>
                 <span>Your cart is empty</span>
-              </a>
+              </Link>
               <a href="#" class="position-relative d-none d-sm-block">
                 <i class="fa-regular fa-newspaper fa-xl"></i>
                 <span>Your wishlist is empty</span>
@@ -391,7 +397,7 @@ const Header = () => {
           </div>
           <ul class="mob-menu-pages">
             <li>
-              <a href="index.html"><span>Home</span></a>
+              <Link to="/"><span>Home</span></Link>
             </li>
             <li>
               <a class="d-flex align-items-center justify-content-between accardion-open">
@@ -399,7 +405,7 @@ const Header = () => {
                 <i class="fa-solid fa-chevron-down"></i>
               </a>
               <ul class="sub-menu">
-                <li><a href="shop.html">Shop All Products</a></li>
+                <li><Link to="/shop">Shop All Products</Link></li>
                 <li><a>Shop with Sidebar</a></li>
                 <li><a>Shop: 2 Columns</a></li>
                 <li><a>Shop: 4 Columns</a></li>
