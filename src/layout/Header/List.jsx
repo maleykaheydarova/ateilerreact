@@ -9,7 +9,7 @@ const List = ({ classname, heading, items }) => {
             {items.map((item, index) => (
                 <li key={index}>
                     {typeof item === 'string' ? (
-                        <Link to={'/'}>{item}</Link>
+                        <a href='#'>{item}</a>
                     ) : (
                         <Link to={item.anchor} >{item.label}</Link>
                     )}
