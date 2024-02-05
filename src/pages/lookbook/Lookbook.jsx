@@ -3,7 +3,9 @@ import Banner from './Banner'
 
 const Lookbook = () => {
   return (
+    <>
     <Banner/>
+    </>
   )
 }
 
