@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import Logo from '../../assets/img/atelier-logo-alt2-dark.png';
 import Post from '../../assets/img/alvar-demo.jpg';
 import Post1 from '../../assets/img/rebel-demo.jpg';
@@ -7,14 +8,59 @@ import Post3 from '../../assets/img/porter-demo.jpg';
 import Post4 from '../../assets/img/flock-demo.jpg';
 import { Link } from 'react-router-dom';
 import List from './List';
+import MobileMenu from '../../components/mobile-menu/MobileMenu';
+
 
 const Header = () => {
+
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!openerRef.current.contains(e.target) && !mobileMenuRef.current.contains(e.target)) {
+        closeMobileMenu();
+      }
+    };
+
+    if (isMobileOpen) {
+      document.addEventListener('click', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [isMobileOpen]);
+
+  const openerRef = React.createRef();
+  const mobileMenuRef = React.createRef();
+  const opacRef = React.createRef();
+
+
+  const openMobileMenu = () => {
+    setIsMobileOpen(true);
+
+    mobileMenuRef.current.classList.add("opened");
+    document.body.classList.add('overflow-hidden');
+    opacRef.current.style.display = "block";
+
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileOpen(false);
+    mobileMenuRef.current.classList.remove('opened');
+    document.body.classList.remove('overflow-hidden');
+    opacRef.current.style.display = "none";
+  };
+
   return (
     <>
+
+
+      <MobileMenu refer={mobileMenuRef} opacrefer={opacRef} />
+
       <header>
         <div class="containers row mx-0 w-100">
           <div class="col-2 d-flex">
-            <div class="baricon me-4">
+            <div class="baricon me-4" onClick={openMobileMenu} ref={openerRef}>
               <Link><i class="fa-solid fa-bars fa-lg"></i></Link>
             </div>
 
@@ -77,7 +123,7 @@ const Header = () => {
                       "Track Your Order",
                       "My Account",
                       "Checkout",
-                      "Lookbook",
+                      { label: "Lookbook", anchor: "/lookbook" },
                       "Catalog Mode",
                     ]} />
                   </li>
@@ -350,107 +396,6 @@ const Header = () => {
         </div>
         <div class="col-12 col-md-3">
           <span><strong>Receive Gifts</strong> when you subscribe.</span>
-        </div>
-      </div>
-      <div class="mobile-menu-wrap position-fixed">
-        <div class="mobile-menu-inner">
-          <div class="mob-menu-search">
-            <input type="text" placeholder="Search" />
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <ul class="mob-menu-pages">
-            <li>
-              <Link to="/"><span>Home</span></Link>
-            </li>
-            <li>
-              <Link class="d-flex align-items-center justify-content-between accardion-open">
-                <span>Shop</span>
-                <i class="fa-solid fa-chevron-down"></i>
-              </Link>
-              <List classname={"sub-menu"} items={[
-                { label: "Blog", link: "/" },
-                { label: "Half/Half Split", link: "/half" },
-                { label: "Half / Half Split Alt", link: "/" },
-                { label: "Standard with sideba", link: "/" },
-                { label: "Standard Alt with side", link: "/" },
-                { label: "Bold Text Only Style", link: "/" },
-                { label: "Mini with sidebar", link: "/" },
-              ]} />
-            </li>
-            <li>
-              <Link href="features.html">
-                <span>Features</span>
-              </Link>
-            </li>
-            <li>
-              <Link to={'/'}>
-                <span>Portfolio</span>
-              </Link>
-            </li>
-            <li>
-              <Link class="d-flex align-items-center justify-content-between accardion-open">
-                <span>Blog</span>
-                <i class="fa-solid fa-chevron-down"></i>
-              </Link>
-              <List classname={"sub-menu"} items={[
-                { label: 'Standard Alt', link: '/' },
-                { label: 'Masonry Style', link: '/' },
-                { label: 'Mini + sidebar', link: '/' },
-                { label: 'Text Only Style', link: '/' },
-              ]} />
-            </li>
-            <li>
-              <Link class="d-flex align-items-center justify-content-between accardion-open">
-                <span>Pages</span>
-                <i class="fa-solid fa-chevron-down"></i>
-              </Link>
-              <List classname={"sub-menu"} items={[
-                { label: 'About Us', link: '/' },
-                { label: 'Contact', link: '/' },
-                { label: 'F.A.Q.’s', link: '/' },
-                { label: 'Meet the Team', link: '/' },
-                { label: 'Size and Fit', link: '/' },
-              ]} />
-            </li>
-            <li>
-              <Link class="d-flex align-items-center justify-content-between accardion-open">
-                <span>Demos</span>
-                <i class="fa-solid fa-chevron-down"></i>
-              </Link>
-              <List classname={"sub-menu"} items={[
-                { label: 'Form: Coffee', link: '/' },
-                { label: 'Union: Cosmetics', link: '/' },
-                { label: 'Convoy: Accessories', link: '/' },
-                { label: 'Lab: Wine Shop', link: '/' },
-                { label: 'Tilt: Art Prints', link: '/' },
-              ]} />
-            </li>
-          </ul>
-          <ul class="mob-menu-pages">
-            <li>
-              <Link
-                to={'/'}
-                class="d-flex align-items-center justify-content-between"
-              >
-                <span>Cart</span>
-                <i class="fa-solid fa-shopping-cart"></i>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={'/'}
-                class="d-flex align-items-center justify-content-between"
-              >
-                <span>Wishlist</span>
-                <i class="fa-solid fa-clipboard-list"></i>
-              </Link>
-            </li>
-            <li>
-              <Link to={'/'}>
-                <span>Login / Sign Up</span>
-              </Link>
-            </li>
-          </ul>
         </div>
       </div>
     </>
