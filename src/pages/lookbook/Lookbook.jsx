@@ -1,10 +1,10 @@
 import React from 'react'
-import Banner from './Banner'
+import FirstProduct from './FirstProduct';
 
 const Lookbook = () => {
   return (
     <>
-    <Banner/>
+   <FirstProduct/>
     </>
   )
 }

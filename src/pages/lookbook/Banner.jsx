@@ -1,19 +1,17 @@
 import React from 'react'
-import BannerImg from '../../assets/img/marni-down-jacket-grey01alt.jpg';
-import BannerImg2 from '../../assets/img/marni-down-jacket-grey02alt.jpg';
-const Banner = () => {
+const Banner = ({heading, imgsource, imgsource2}) => {
   return (
   <>
-   <section class="twoimage pt-5 item">
+   <section class="twoimage pt-5">
         <div class="container">
           <div class="texth4">
-            <h3>One.</h3>
+            <h3>{heading}</h3>
           </div>
           <div class="row mx-0">
             <div class="col-12 col-md-6">
               <div class="imageone">
                 <img
-                  src={BannerImg}
+                  src={imgsource}
                   alt=""
                 />
               </div>
@@ -21,7 +19,7 @@ const Banner = () => {
             <div class="col-12 col-md-6">
               <div class="imageone">
                 <img
-                  src={BannerImg2}
+                  src={imgsource2}
                   alt=""
                 />
               </div>
