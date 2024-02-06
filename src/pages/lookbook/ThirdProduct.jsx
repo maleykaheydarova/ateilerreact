@@ -1,53 +1,55 @@
 import React from 'react'
 import Banner from './Banner'
 import Card from '../../components/card/Card';
-import BannerImg from '../../assets/img/marni-down-jacket-grey01alt.jpg';
-import BannerImg2 from '../../assets/img/marni-down-jacket-grey02alt.jpg';
-import CardImg from '../../assets/img/marni-down-jacket-grey01alt.jpg';
-import CardImg2 from '../../assets/img/acne-suit-pants-black01_2alt-792x1024.jpg'
-import CardImg3 from '../../assets/img/acne-suit-pants-black02_2alt-792x1024.jpg';
-import CardImg4 from '../../assets/img/1_11_10alt-792x1024.jpg';
-import CardImg5 from '../../assets/img/cp-suade-grey0001_2alt-792x1024.jpg';
-import CardImg6 from '../../assets/img/cp-suade-grey0003_2-792x1024.jpg';
+import BannerImg from '../../assets/img/59alt.jpg';
+import BannerImg2 from '../../assets/img/60alt.jpg';
+import CardImg from '../../assets/img/cp-high-suade-yellowish0001_1alt-792x1024.jpg';
+import CardImg2 from '../../assets/img/cp-high-suade-yellowish0003_1alt-792x1024.jpg';
+import CardImg3 from '../../assets/img/acne-suit-pants-black01_2alt-792x1024.jpg';
+import CardImg4 from '../../assets/img/acne-suit-pants-black02_2alt-792x1024.jpg';
+import CardImg5 from '../../assets/img/59alt.jpg';
+import CardImg6 from '../../assets/img/60alt.jpg';
+import CardImg7 from '../../assets/img/7_1_5alt-792x1024.jpg';
 
-const FirstProduct = () => {
+const SecondProduct = () => {
     const products=[
         {
             imgsource: CardImg,
-            name: "Padded Jacket",
-            category: "Outerwear",
-            price: "715",
-            OneImg:true,
-            ArrayI:3,
+            imgsource2: CardImg2,
+            name: "Achilles Mid",
+            category: "Footwear",
+            price: "280",
+            twoImg:true,
+            ArrayI:1,
             ResponsiveClasses:"col-12 col-sm-6 mt-3"
           },
         {
-            imgsource: CardImg2,
-            imgsource2: CardImg3,
+            imgsource: CardImg3,
+            imgsource2: CardImg4,
             name: "Sam Trousers",
             category: "Trousers",
             price: "300 – £320",
             twoImg:true,
-            ArrayI:4,
-            ResponsiveClasses:"col-12 col-sm-6 mt-3"
-          },
-          {
-            imgsource: CardImg4,
-            name: "1940’s Shirt",
-            category: "Shirting",
-            price: "130",
-            OneImg:true,
-            ArrayI:4,
+            ArrayI:2,
             ResponsiveClasses:"col-12 col-sm-6 mt-3"
           },
           {
             imgsource: CardImg5,
             imgsource2: CardImg6,
-            name: "Achilles Low",
-            category: "Footwear",
-            price: "240 – £265",
+            name: "Control Blazer",
+            category: "Outerwear",
+            price: "300",
             twoImg:true,
-            ArrayI:4,
+            ArrayI:5,
+            ResponsiveClasses:"col-12 col-sm-6 mt-3"
+          },
+          {
+            imgsource: CardImg7,
+            name: "Moto Sweat",
+            category: "Sweaters",
+            price: "65 ",
+            OneImg:true,
+            ArrayI:3,
             ResponsiveClasses:"col-12 col-sm-6 mt-3"
           },
         
@@ -55,8 +57,8 @@ const FirstProduct = () => {
 
     ];
   return (
-    <>
-    <Banner heading={"One."}
+   <>
+   <Banner heading={"Three."}
     imgsource={BannerImg}
     imgsource2={BannerImg2}/>
     <section class="twoproduct">
@@ -85,8 +87,8 @@ const FirstProduct = () => {
     </div>
         </div>
     </section>
-    </>
+   </>
   )
 }
 
-export default FirstProduct
+export default SecondProduct
