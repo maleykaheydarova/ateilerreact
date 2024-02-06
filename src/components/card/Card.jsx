@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-const Card = ({ imgsource, name, category, price, imgsource2, twoImg, OneImg, ArrayI }) => {
+import IconsHover from './IconsHover';
+const Card = ({ imgsource, name, category, price, imgsource2, twoImg, OneImg, ArrayI, ResponsiveClasses }) => {
     const [ArrayIForOne, setArrayIForOne] = useState([]);
     const [ArrayIForTwo, setArrayIForTwo] = useState([]);
     useEffect(() => {
@@ -10,7 +11,7 @@ const Card = ({ imgsource, name, category, price, imgsource2, twoImg, OneImg, Ar
     }, []);
     return (
         <>
-            <div class="col-lg-3 col-md-3 col-sm-4 card-hover">
+            <div className={`col-md-3 card-hover ${ResponsiveClasses}`}>
                 <div class="img-box position-relative">
                     {OneImg && (
                         <div>
@@ -29,18 +30,7 @@ const Card = ({ imgsource, name, category, price, imgsource2, twoImg, OneImg, Ar
 
                     )}
 
-                    <div class="icons-hover position-absolute d-flex">
-                        <div class="iconn d-flex align-items-center">
-                            <a href=""> <i class="fa-solid fa-cart-plus"></i></a>
-                        </div>
-                        <div class="iconn  d-flex align-items-center">
-                            <a href=""> <i class="fa-solid fa-newspaper"></i></a>
-                        </div>
-                        <div class="iconn  d-flex align-items-center">
-                            <a href=""> <i class="fa-solid fa-eye"></i></a>
-                        </div>
-
-                    </div>
+                    <IconsHover/>
                 </div>
                 <div class="img-info-box d-flex flex-column mt-4">
                     <span class="main-name"><a class=" fw-bold" href="#">{name}</a></span>
@@ -49,8 +39,7 @@ const Card = ({ imgsource, name, category, price, imgsource2, twoImg, OneImg, Ar
                     <div class="rating-part">
                         {ArrayIForOne && (
                             <>
-                                {
-                                    ArrayIForOne.map((x, index) => (
+                                {ArrayIForOne.map((x, index) => (
                                         <i key={index} className="fa-solid fa-star"></i>
                                     ))}
                                 {ArrayIForTwo.map((x, index) => (
