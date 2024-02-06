@@ -18,11 +18,13 @@
     z-index: 2000;
     overflow-y: auto;
 
+
     transform: translateX(-100%);
     transition: all 0.4s;
 
 
     .mobile-menu-inner {
+        min-width: 280px;
 
         .mob-menu-search {
             position: relative;
