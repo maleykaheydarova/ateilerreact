@@ -77,7 +77,7 @@ const Header = () => {
                       "Track Your Order",
                       "My Account",
                       "Checkout",
-                      "Lookbook",
+                      { label: "LookBook", anchor: "/lookbook" },
                       "Catalog Mode",
                     ]} />
                   </li>
