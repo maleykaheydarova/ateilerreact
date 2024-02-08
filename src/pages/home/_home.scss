@@ -6,6 +6,16 @@
 }
 
 .swiper {
+
+  .swiper-pagination-bullet-active {
+    background-color: #222;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: rgb(33, 37, 41);
+  }
+
   .swiper-wrapper {
     width: 100%;
 
@@ -45,6 +55,12 @@
       }
 
 
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 70%;
     }
 
     .slider-workshop {
