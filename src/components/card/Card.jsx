@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import IconsHover from './IconsHover';
-const Card = ({ imgsource, name, category, price, imgsource2, twoImg, OneImg, ArrayI, ResponsiveClasses }) => {
+const Card = ({ imgsource, name, category, price, imgsource2, twoImg, OneImg, ArrayI, ResponsiveClasses, ResponsiveClasses2, ResponsiveClasses3}) => {
     const [ArrayIForOne, setArrayIForOne] = useState([]);
     const [ArrayIForTwo, setArrayIForTwo] = useState([]);
     useEffect(() => {
@@ -11,7 +11,7 @@ const Card = ({ imgsource, name, category, price, imgsource2, twoImg, OneImg, Ar
     }, []);
     return (
         <>
-            <div className={`col-md-3 card-hover ${ResponsiveClasses}`}>
+            <div className={`col-md-3 card-hover ${ResponsiveClasses} ${ResponsiveClasses2} ${ResponsiveClasses3}`}>
                 <div class="img-box position-relative">
                     {OneImg && (
                         <div>
@@ -52,76 +52,6 @@ const Card = ({ imgsource, name, category, price, imgsource2, twoImg, OneImg, Ar
                     </div>
                 </div>
             </div>
-            {/* <div class="cartshop col-12 col-md-3 col-sm-6 mt-3">
-                <ul class="d-flex flex-column gap-1">
-                    <li>
-                        <div class="productimg position-relative">
-                            {OneImg && (
-                                <div>
-                                    <img
-                                        src={imgsource}
-                                        alt=""
-                                    />
-                                </div>
-                            )}
-                            {twoImg && (
-                                <>
-                                    <div class="one-img">
-                                        <img
-                                            src={imgsource}
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div class="second-img position-absolute">
-                                        <img
-                                            src={imgsource2}
-                                            alt=""
-                                        />
-                                    </div>
-                                </>
-
-                            )}
-
-                            <div class="icons-hover position-absolute d-flex">
-                                <div class="iconn d-flex align-items-center">
-                                    <a href=""> <i class="fa-solid fa-cart-plus"></i></a>
-                                </div>
-                                <div class="iconn  d-flex align-items-center">
-                                    <a href=""> <i class="fa-solid fa-newspaper"></i></a>
-                                </div>
-                                <div class="iconn  d-flex align-items-center">
-                                    <a href=""> <i class="fa-solid fa-eye"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </li>
-                    <li class="mt-4">
-                        <a href="#"><h5>{name}</h5></a>
-                    </li>
-                    <li>
-                        <a href="#"><span>{category}</span> </a>
-                    </li>
-                    <li><span>£{price}</span></li>
-                    <li>
-                        <span>
-                            {ArrayIForOne && (
-                                <>
-                                    {
-                                        ArrayIForOne.map((x, index) => (
-                                            <i key={index} className="fa-solid fa-star"></i>
-                                        ))}
-                                    {ArrayIForTwo.map((x, index) => (
-                                        <i key={index} className="fa-regular fa-star"></i>
-                                    ))
-                                    }
-                                </>
-
-                            )}
-                        </span>
-                    </li>
-                </ul>
-            </div> */}
         </>
     )
 }
