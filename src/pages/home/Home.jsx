@@ -1,12 +1,14 @@
 import React from 'react'
 import HomeSwiper from './HomeSwiper'
+import ContentArea from './ContentArea'
 
 
 const Home = () => {
   return (
-    <div className="swiper-area">
+    <>
       <HomeSwiper />
-    </div>
+      <ContentArea />
+    </>
   )
 }
 

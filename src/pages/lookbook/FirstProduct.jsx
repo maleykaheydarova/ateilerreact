@@ -53,13 +53,13 @@ const FirstProduct = () => {
         
 
 
-    ];
+  ];
   return (
     <>
-    <Banner heading={"One."}
-    imgsource={BannerImg}
-    imgsource2={BannerImg2}/>
-    <section class="twoproduct">
+      <Banner heading={"One."}
+        imgsource={BannerImg}
+        imgsource2={BannerImg2} />
+      <section class="twoproduct">
         <div class="container cards-with-hover">
           <div class="textheader my-3">
             <h5>
@@ -80,11 +80,11 @@ const FirstProduct = () => {
           ArrayI={product.ArrayI}
           ResponsiveClasses={product.ResponsiveClasses}
 
-        />
-      ))}
-    </div>
+              />
+            ))}
+          </div>
         </div>
-    </section>
+      </section>
     </>
   )
 }
