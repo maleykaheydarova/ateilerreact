@@ -101,31 +101,29 @@
 // export default ProductSwiper;
 
 
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import React, { useRef, useState, useEffect } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
 import 'swiper/css/bundle';
 
-// import './styles.css';
-
-// import required modules
 import { FreeMode, Thumbs } from 'swiper/modules';
 
 export default function App() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState();
+  useEffect(()=> {
+    console.log("Thumbs Swiper:" , thumbsSwiper);
+  },[thumbsSwiper]);
 
   return (
     <>
       <Swiper
         
         spaceBetween={10}
-        navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
+        thumbs={{ thumbsSwiper }}
         modules={[FreeMode, Thumbs]}
         className="mySwiper2"
       >
@@ -140,13 +138,13 @@ export default function App() {
         </SwiperSlide>
       </Swiper>
       <Swiper
-        onSwiper={setThumbsSwiper}
+      
         spaceBetween={10}
-        slidesPerView={4}
+        slidesPerView={3}
         freeMode={true}
         watchSlidesProgress={true}
-        modules={[FreeMode, Thumbs]}
         className="mySwiper"
+        onSwiper={setThumbsSwiper}
       >
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
