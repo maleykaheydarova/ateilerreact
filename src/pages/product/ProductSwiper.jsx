@@ -6,7 +6,7 @@ import SwiperPhoto from '../../assets/img/mm-turtlenec-green01alt.jpg'
 import SwiperPhoto2 from '../../assets/img/mm-turtlenec-green02alt.jpg'
 
 
-const ProductSwiper = () => {
+export default function App() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
@@ -70,5 +70,3 @@ const ProductSwiper = () => {
     </div>
   );
 }
-
-export default ProductSwiper
