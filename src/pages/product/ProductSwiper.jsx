@@ -231,5 +231,3 @@ const ProductSwiper = () => {
 
   )
 }
-
-export default ProductSwiper
