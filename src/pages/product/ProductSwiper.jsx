@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div className="col-12 pt-3 col-lg-6 col-md-6 product-lil-swiper bg-white">
 
-      <div className="swiper mainSwiper" >
+      <div className="swiper mainSwiper">
         <div className="first-swiper swiper-wrapper">
           <Swiper
             onSwiper={setThumbsSwiper}

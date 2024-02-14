@@ -18,7 +18,6 @@ const LinkRouter = () => {
             <Route path='lookbook' element={<Lookbook/>}/>
             <Route path='product' element={<Product/>}/>
             <Route path='cart' element={<Cart/>}/>
-
         </Route>
     </Routes>
   )
