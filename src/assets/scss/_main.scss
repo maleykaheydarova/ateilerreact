@@ -7,6 +7,9 @@
 @import"../../assets/scss/variable";
 @import"../../components/mobile-menu/mobileMenu";
 @import "../../assets/scss/buttons";
+// admin panel
+@import"../../admin/AdminPanelLayout/Header/headeradmin";
+@import "../../admin//AdminPanelLayout//Aside/aside";
 @font-face {
     font-family: 'Dosis';
     src: url('../fonts/Dosis/Dosis-VariableFont_wght.ttf') format('truetype'),
