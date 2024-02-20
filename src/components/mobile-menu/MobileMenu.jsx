@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import List from '../../layout/Header/List';
-import { useState, useEffect } from 'react';
+import List from '../../components/list/List';
+import { useState} from 'react';
 
 const MobileMenu = ({ refer, opacrefer }) => {
 
