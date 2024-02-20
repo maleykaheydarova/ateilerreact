@@ -7,7 +7,8 @@ import Post2 from '../../assets/img/vario-demo.jpg';
 import Post3 from '../../assets/img/porter-demo.jpg';
 import Post4 from '../../assets/img/flock-demo.jpg';
 import { Link } from 'react-router-dom';
-import List from './List';
+import List from '../../components/list/List';
+import ListItem from '../../components/list/ListItem';
 import MobileMenu from '../../components/mobile-menu/MobileMenu';
 
 
@@ -77,12 +78,15 @@ const Header = () => {
               <li class="homehover">
                 <Link to="/" class="hover-link">Home</Link>
 
-                <ul class="homehoverin">
-                  <li class="d-flex gap-5">
+                <ul class="homehoverin d-flex gap-5">
+                  <li>
                     <List classname={"d-flex flex-column gap-3 pt-3"} items={["Landing", "Animated Header", "Tiles Tiles Tiles", "Multi-Masonry", "Modern Classic"]} />
+                  </li>
+                  <li>
                     <List classname={"d-flex flex-column gap-3 pt-3"} items={["Poster", "Product Focus", "Half / Half Split", "Naked Header + Tiles", "Fullscreen + Masonry"]} />
                   </li>
                 </ul>
+                
               </li>
               <li class="shopStylesHover">
                 <Link to="/shop" class="hover-link">Shop Styles</Link>
