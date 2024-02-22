@@ -1,7 +1,61 @@
 import React from "react";
-
+import AddForm from "../Components/AddForm"
 const Add = () => {
+    const add=[
+        {
+            ResponsiveClasses: "form-floating mb-3 mb-md-3",
+            Name: "Name",
+            type: "text",
+            FormClasses :"form-control w-100",   
+            LabelClasses:"w-25",
+        },
+        {
+            ResponsiveClasses: "form-floating mb-3 mb-md-3",
+            Name: "Price",
+            type: "number",
+            FormClasses :"form-control w-100",
+            LabelClasses:"w-25",
+            
+        },
+        {
+            ResponsiveClasses: "form-floating mb-3 mb-md-3",
+            Name: "Rating",
+            type: "number",
+            FormClasses :"form-control w-100",  
+            LabelClasses:"w-25",
+        },
+        {
+            ResponsiveClasses: "d-flex align-items-center justify-content-start ms-1",
+            Name: " IsTrending",
+            type: "checkbox",
+            FormClasses :"",  
+            LabelClasses:"my-1 mx-2",
+        },
+        {
+            ResponsiveClasses: "d-flex align-items-center justify-content-start ms-1",
+            Name: " IsFeatured",
+            type: "checkbox",
+            FormClasses :"",  
+            LabelClasses:"my-1 mx-2",
+        },
+        {
+            ResponsiveClasses: "form-floating mb-5 mb-md-4",
+            Name: "Image Path",
+            type: "file",
+            FormClasses :"form-control w-100",  
+            LabelClasses:"w-25",
+        },
+        {
+            ResponsiveClasses: "form-floating mt-3 mb-md-3",
+            Name: "Description",
+            type: "text",
+            FormClasses :"form-control w-100", 
+            LabelClasses:"w-25", 
+        },
+
+    ];
   return (
+    
     <main>
       <div class="container">
         <div class="row justify-content-center">
@@ -18,7 +72,18 @@ const Add = () => {
                 >
                   <div class="row mb-3">
                     <div class="col-md-12 w-100">
-                      <div class="form-floating mb-3 mb-md-3">
+                    {add.map((add, index) => (
+            <AddForm
+              key={index}
+              Name={add.Name}
+              type={add.type}
+              ResponsiveClasses={add.ResponsiveClasses}
+              FormClasses={add.FormClasses}
+              LabelClasses={add.LabelClasses}          
+            />
+          ))}
+
+                      {/* <div class="form-floating mb-3 mb-md-3">
                         <input
                           asp-for="Name"
                           type="text"
@@ -35,34 +100,48 @@ const Add = () => {
                           asp-for="Price"
                           type="number"
                           class="form-control w-100"
-                          id="PersonLastName"
+                          id="Price"
                           placeholder="Enter LastName"
                         />
                         <label for="Price" class="w-25">
                           Price
                         </label>
                       </div>
-                      <div class="d-flex align-items-center justify-content-start">
+                      <div class="form-floating mb-3 mb-md-3">
+                        <input
+                          asp-for="Price"
+                          type="number"
+                          class="form-control w-100"
+                          id="Rating"
+                          placeholder="Enter LastName"
+                        />
+                        <label for="Price" class="w-25">
+                          Rating
+                        </label>
+                      </div>
+                      <div class="d-flex align-items-center justify-content-start ms-1">
+                      <input
+                          asp-for="ShownOnPage"
+                          type="checkbox"
+                          class=""
+                          id="ShownOnPageName"
+                        />
                         <label for="TitileName" class="my-1 mx-2">
                           IsTrending
                         </label>
-                        <input
+                        
+                      </div>
+                      <div class="d-flex align-items-center justify-content-start ms-1">
+                      <input
                           asp-for="ShownOnPage"
                           type="checkbox"
                           class=""
                           id="ShownOnPageName"
                         />
-                      </div>
-                      <div class="d-flex align-items-center justify-content-start">
                         <label for="TitileName" class="my-1 mx-2">
                           IsFeatured
                         </label>
-                        <input
-                          asp-for="ShownOnPage"
-                          type="checkbox"
-                          class=""
-                          id="ShownOnPageName"
-                        />
+                        
                       </div>
                       <div class="form-floating mb-5 mb-md-4">
                         <input
@@ -90,7 +169,7 @@ const Add = () => {
                           Description
                         </label>
                         <span asp-validation-for="Description"></span>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   <div class="mt-5 mb-0">

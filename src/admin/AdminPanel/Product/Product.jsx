@@ -23,12 +23,11 @@ const Product = () => {
                 <tr>
                   <th>Name</th>
                   <th>Price</th>
-                  <th>Raiting</th>
+                  <th>Rating</th>
                   <th>IsTrending</th>
                   <th>IsFeatured</th>
                   <th>Image Path</th>
-                  <th>Category</th>
-                  <th>Description</th>
+                  <th>Description</th>  
                   <th></th>
                   <th></th>
                 </tr>

@@ -18,6 +18,19 @@ import CategoryEdit from "../admin/AdminPanel/Category/Edit";
 //Product
 import ProductIndex from "../admin/AdminPanel/Product/Product";
 import ProductAdd from "../admin/AdminPanel/Product/Add";
+import ProductEdit from "../admin/AdminPanel/Product/Edit";
+//Characterictic
+import CharacteristicIndex from "../admin/AdminPanel/Characteristic/Characteristic";
+import CharacteristicAdd from "../admin/AdminPanel/Characteristic/Add";
+import CHaracteristicEdit from '../admin/AdminPanel/Characteristic/Edit'
+
+//HomeBanner
+import HomeBannerIndex from "../admin/AdminPanel/HomeBanner/HomeBanner"
+import HomeBannerAdd from "../admin/AdminPanel/HomeBanner/Add"
+import HomeBannerEdit from "../admin/AdminPanel/HomeBanner/Edit"
+
+
+
 
 const LinkRouter = () => {
   return (
@@ -38,6 +51,13 @@ const LinkRouter = () => {
         <Route path="/admin/category/edit" element={<CategoryEdit />}/>
         <Route path="/admin/product" element={<ProductIndex />}/>
         <Route path="/admin/product/add" element={<ProductAdd />}/>
+        <Route path="/admin/product/edit" element={< ProductEdit />}/>
+        <Route path="/admin/characteristic" element={< CharacteristicIndex />}/>
+        <Route path="/admin/characteristic/add" element={< CharacteristicAdd />}/>
+        <Route path="/admin/characteristic/edit" element={<CHaracteristicEdit/>}/>
+        <Route path="/admin/homebanner" element={< HomeBannerIndex />}/>
+        <Route path="/admin/homebanner/add" element={< HomeBannerAdd/>}/>
+        <Route path="/admin/homebanner/edit/:id" element={< HomeBannerEdit/>}/>
 
       </Route>
     </Routes>
