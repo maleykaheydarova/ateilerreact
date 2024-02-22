@@ -2,7 +2,7 @@
     --cui-header-min-height: 4rem;
     --cui-header-padding-x: 0.5rem;
     --cui-header-padding-y: 0.5rem;
-    --cui-header-bg: #fff;
+    --cui-header-bg:#fff;
     --cui-header-color: rgba(44, 56, 74, 0.681);
     --cui-header-border-color: #d8dbe0;
     --cui-header-border: 1px solid var(--cui-header-border-color);
@@ -34,6 +34,7 @@
     padding: var(--cui-header-padding-y) var(--cui-header-padding-x);
     background: var(--cui-header-bg);
     border-bottom: var(--cui-header-border);
+  
   }
   .header > .container,
   .header > .container-fluid,

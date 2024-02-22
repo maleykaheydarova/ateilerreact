@@ -9,8 +9,6 @@ const Category = () => {
       <Link to={"add"} class="btn btn-primary">
         Add
       </Link>
-      {/* <a href="/admin/category/add" class="btn btn-primary">Add</a> */}
-
       <div class="card shadow mb-4 mt-3 ">
         <div class="card-body ">
           <div class="table-responsive">
