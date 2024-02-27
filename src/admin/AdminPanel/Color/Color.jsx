@@ -1,38 +1,42 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import EntityTable from '../Components/EntityTable';
 
 const Color = () => {
+  const [colors, setColors] = useState([]);
+  const [update, setUpdate] = useState(0);
+
+  useEffect(() => {
+    fetch('https://localhost:44397/api/Color')
+      .then(response => response.json())
+      .then(data => {
+        setColors(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }, [update]);
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`https://localhost:44397/api/color?id=${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        console.log(`Color with ID ${id} deleted successfully`);
+        setUpdate(update + 1);
+      } else {
+        console.error(`Error deleting color with ID ${id}:`, response.statusText);
+      }
+    } catch (error) {
+      console.error('Error deleting color:', error);
+    }
+  };
+
   return (
-    <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800 mt-4">Characteristic</h1>
-
-    <Link to={"add"} class="btn btn-primary">
-      Add
-    </Link>
-    <div class="card shadow mb-4 mt-3 ">
-      <div class="card-body ">
-        <div class="table-responsive">
-          <table
-            class="table table-bordered table-striped"
-            id="dataTable"
-            width="100%"
-            cellspacing="0"
-          >
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+    <EntityTable data={colors} onDelete={handleDelete} entityName={'Colors'} />
   )
-}
+};
 
-export default Color
+export default Color;
