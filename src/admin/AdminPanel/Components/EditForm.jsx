@@ -7,7 +7,6 @@ const EditForm = ({ Name, type, ResponsiveClasses, FormClasses, LabelClasses }) 
     <input
       asp-for="Name"
       type={type}
-      disabled={disabled}
       className={` ${FormClasses} `}
       id="PersonFirstName"
 
