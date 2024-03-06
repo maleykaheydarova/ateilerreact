@@ -1,34 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const AddEntity = ({ apiUrl, entityName, initialData }) => {
+const AddEntity = ({ apiUrl, entityName, propertyNames }) => {
+    const [errorMessages, setErrorMessages] = useState({});
+    const [formValues, setFormValues] = useState({});
     const navigate = useNavigate();
-    const [formData, setFormData] = useState(initialData || {});
+
+
+    useEffect(() => {
+        propertyNames.map(property => (
+            setFormValues(prevValues => ({ ...prevValues, [property]: "" }))
+        ))
+    }, [apiUrl, entityName, propertyNames]);
 
     const handleInputChange = (property, value) => {
-        setFormData(prevData => ({ ...prevData, [property]: value }));
+        setFormValues(prevValues => ({ ...prevValues, [property]: value }));
     };
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            const response = await fetch(apiUrl, {
+            const response = await fetch(`${apiUrl}/${entityName}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(formValues),
             });
-
             if (response.ok) {
-                console.log(`Data added successfully for ${entityName}`);
-                navigate(`/admin/${entityName}`);
+                const res = await response.json();
+                if (!res.success) {
+                    const updatedErrorMessages = {};
+                    propertyNames.forEach(prop => {
+                        const dataIndex = res.data.indexOf(prop);
+                        if (dataIndex !== -1) {
+                            updatedErrorMessages[prop] = res.messages[dataIndex];
+                        }
+                    });
+                    setErrorMessages(prevValues => ({ ...prevValues, ...updatedErrorMessages }));
+                }
+                else {
+                    navigate(`/admin/${entityName}`);
+                    console.log('Data added successfully');
+                }
             } else {
-                console.error(`Error adding data for ${entityName}:`, response.statusText);
+                console.error('Error adding data:', response.statusText);
             }
         } catch (error) {
-            console.error(`Error adding data for ${entityName}:`, error);
+            console.error('Error adding data:', error);
         }
     };
 
@@ -45,19 +65,19 @@ const AddEntity = ({ apiUrl, entityName, initialData }) => {
                                 <form onSubmit={handleFormSubmit}>
                                     <div className="row mb-3">
                                         <div className="col-md-12 w-100">
-                                            {Object.keys(formData).map(property => (
+                                            {propertyNames.map(property => (
                                                 <div key={property} className="form-floating mb-3 mb-md-3">
                                                     <input
                                                         type="text"
                                                         className="form-control w-100"
                                                         id={property}
                                                         placeholder={`Enter ${property}`}
-                                                        value={formData[property] || ''}
-                                                        onChange={(e) => handleInputChange(property, e.target.value)}
+                                                        onChange={(e) => handleInputChange(property.toLowerCase(), e.target.value)}
                                                     />
                                                     <label htmlFor={property} className="w-25">
-                                                        {property}
+                                                        {property.charAt(0).toUpperCase() + property.slice(1)}
                                                     </label>
+                                                    <p className='text-danger'>{errorMessages[property]}</p>
                                                 </div>
                                             ))}
                                         </div>

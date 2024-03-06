@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 const HomeBannerBody = ({ x, updateFunction }) => {
-  console.log("Image path:", x.imagePath);
     const DeleteClick = async (id) => {
         try {
           const response = await fetch(
-            `https://localhost:7074/api/HomeBanner/${id}`,
+            `https://localhost:44397/api/HomeBanner${id}`,
             {
               method: "DELETE",
             }

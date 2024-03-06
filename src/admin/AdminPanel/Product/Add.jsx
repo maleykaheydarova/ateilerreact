@@ -1,61 +1,61 @@
 import React from "react";
 import AddForm from "../Components/AddForm"
 const Add = () => {
-    const add=[
-        {
-            ResponsiveClasses: "form-floating mb-3 mb-md-3",
-            Name: "Name",
-            type: "text",
-            FormClasses :"form-control w-100",   
-            LabelClasses:"w-25",
-        },
-        {
-            ResponsiveClasses: "form-floating mb-3 mb-md-3",
-            Name: "Price",
-            type: "number",
-            FormClasses :"form-control w-100",
-            LabelClasses:"w-25",
-            
-        },
-        {
-            ResponsiveClasses: "form-floating mb-3 mb-md-3",
-            Name: "Rating",
-            type: "number",
-            FormClasses :"form-control w-100",  
-            LabelClasses:"w-25",
-        },
-        {
-            ResponsiveClasses: "d-flex align-items-center justify-content-start ms-1",
-            Name: " IsTrending",
-            type: "checkbox",
-            FormClasses :"",  
-            LabelClasses:"my-1 mx-2",
-        },
-        {
-            ResponsiveClasses: "d-flex align-items-center justify-content-start ms-1",
-            Name: " IsFeatured",
-            type: "checkbox",
-            FormClasses :"",  
-            LabelClasses:"my-1 mx-2",
-        },
-        {
-            ResponsiveClasses: "form-floating mb-5 mb-md-4",
-            Name: "Image Path",
-            type: "file",
-            FormClasses :"form-control w-100",  
-            LabelClasses:"w-25",
-        },
-        {
-            ResponsiveClasses: "form-floating mt-3 mb-md-3",
-            Name: "Description",
-            type: "text",
-            FormClasses :"form-control w-100", 
-            LabelClasses:"w-25", 
-        },
+  const add = [
+    {
+      ResponsiveClasses: "form-floating mb-3 mb-md-3",
+      Name: "Name",
+      type: "text",
+      FormClasses: "form-control w-100",
+      LabelClasses: "w-25",
+    },
+    {
+      ResponsiveClasses: "form-floating mb-3 mb-md-3",
+      Name: "Price",
+      type: "number",
+      FormClasses: "form-control w-100",
+      LabelClasses: "w-25",
 
-    ];
+    },
+    {
+      ResponsiveClasses: "form-floating mb-3 mb-md-3",
+      Name: "Rating",
+      type: "number",
+      FormClasses: "form-control w-100",
+      LabelClasses: "w-25",
+    },
+    {
+      ResponsiveClasses: "d-flex align-items-center justify-content-start ms-1",
+      Name: " IsTrending",
+      type: "checkbox",
+      FormClasses: "",
+      LabelClasses: "my-1 mx-2",
+    },
+    {
+      ResponsiveClasses: "d-flex align-items-center justify-content-start ms-1",
+      Name: " IsFeatured",
+      type: "checkbox",
+      FormClasses: "",
+      LabelClasses: "my-1 mx-2",
+    },
+    {
+      ResponsiveClasses: "form-floating mb-5 mb-md-4",
+      Name: "Image Path",
+      type: "file",
+      FormClasses: "form-control w-100",
+      LabelClasses: "w-25",
+    },
+    {
+      ResponsiveClasses: "form-floating mt-3 mb-md-3",
+      Name: "Description",
+      type: "text",
+      FormClasses: "form-control w-100",
+      LabelClasses: "w-25",
+    },
+
+  ];
   return (
-    
+
     <main>
       <div class="container">
         <div class="row justify-content-center">
@@ -72,17 +72,16 @@ const Add = () => {
                 >
                   <div class="row mb-3">
                     <div class="col-md-12 w-100">
-                    {add.map((add, index) => (
-            <AddForm
-              key={index}
-              Name={add.Name}
-              type={add.type}
-              ResponsiveClasses={add.ResponsiveClasses}
-              FormClasses={add.FormClasses}
-              LabelClasses={add.LabelClasses}          
-            />
-          ))}
-
+                      {add.map((add, index) => (
+                        <AddForm
+                          key={index}
+                          Name={add.Name}
+                          type={add.type}
+                          ResponsiveClasses={add.ResponsiveClasses}
+                          FormClasses={add.FormClasses}
+                          LabelClasses={add.LabelClasses}
+                        />
+                      ))}
                       {/* <div class="form-floating mb-3 mb-md-3">
                         <input
                           asp-for="Name"

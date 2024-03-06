@@ -1,8 +1,10 @@
 import React from 'react'
+import EntityTable from '../Components/EntityTable'
 
 const Post = () => {
+  const properties = ["Name"]
   return (
-    <div>Post</div>
+    <EntityTable apiUrl={"https://localhost:44397/api"} entityName={"Size"} propertyNames={properties} />
   )
 }
 
