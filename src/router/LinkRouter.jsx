@@ -68,7 +68,7 @@ const LinkRouter = () => {
         <Route index path="/admin" element={<Admin />} />
         <Route path="/admin/category" element={<CategoryIndex />} />
         <Route path="/admin/category/add" element={<CategoryAdd />} />
-        <Route path="/admin/category/edit" element={<CategoryEdit />} />
+        <Route path="/admin/category/edit/:id" element={<CategoryEdit />} />
         <Route path="/admin/product" element={<ProductIndex />} />
         <Route path="/admin/product/add" element={<ProductAdd />} />
         <Route path="/admin/product/edit/:id" element={< ProductEdit />} />

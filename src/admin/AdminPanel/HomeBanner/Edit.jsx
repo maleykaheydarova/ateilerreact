@@ -46,7 +46,7 @@ const Edit = () => {
 
     try {
       const response = await fetch(
-        `https://localhost:7046/api/AdvertisementBanner/${id}`,
+        `https://localhost:44397/api/HomeBanner/${id}`,
         {
           method: "PUT",
           headers: {
@@ -75,7 +75,7 @@ const Edit = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://localhost:7046/api/AdvertisementBanner/${id}`
+          `https://localhost:44397/api/HomeBanner/${id}`
         );
 
         if (response.ok) {

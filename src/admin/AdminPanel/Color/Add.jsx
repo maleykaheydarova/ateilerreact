@@ -1,46 +1,10 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import AddEntity from '../Components/AddEntity';
 
 const Add = () => {
-  const [name, setName] = useState('');
-  const navigate = useNavigate();
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    // Create a JSON object to send the data
-    const data = {
-      name: name,
-    };
-
-    // Send a POST request to the API endpoint
-    try {
-      const response = await fetch('https://localhost:44397/api/color', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json', // Specify the content type as JSON
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
-        console.log('Data added successfully');
-        navigate('/admin/Color');
-      } else {
-        console.error('Error adding data:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error adding data:', error);
-    }
-  };
-
+  const properties = ["Name"]
   return (
-    <AddEntity apiUrl={"https://localhost:44397/api/color"} entityName={"Color"} />
+    <AddEntity apiUrl={"https://localhost:44397/api"} entityName={"Color"} propertyNames={properties}/>
     // <main>
     //   <div className="container">
     //     <div className="row justify-content-center">
