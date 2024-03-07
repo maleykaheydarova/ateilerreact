@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom";
 //Pages
 import Layout from "../layout/Layout/Layout";
 import Home from "../pages/home/Home";
+import Login from "../pages/loginandregister/Login";
+import Register from "../pages/loginandregister/Register";
 import Shop from "../pages/shop/Shop";
 import Half from "../pages/half/Half";
 import Lookbook from "../pages/lookbook/Lookbook";
@@ -62,6 +64,8 @@ const LinkRouter = () => {
         <Route path="lookbook" element={<Lookbook />} />
         <Route path="product" element={<Product />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Route>
 
       <Route path="/admin" element={<AdminPanelLayout />}>

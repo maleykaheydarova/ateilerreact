@@ -1,10 +1,11 @@
 import React from 'react'
 import EntityTable from '../Components/EntityTable'
+import Helper from '../../../Helpers/helper'
 
 const Post = () => {
   const properties = ["Name"]
   return (
-    <EntityTable apiUrl={"https://localhost:44397/api"} entityName={"Size"} propertyNames={properties} />
+    <EntityTable apiUrl={Helper} entityName={"Size"} propertyNames={properties} />
   )
 }
 

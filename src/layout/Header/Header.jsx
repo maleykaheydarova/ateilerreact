@@ -8,13 +8,13 @@ import Post3 from '../../assets/img/porter-demo.jpg';
 import Post4 from '../../assets/img/flock-demo.jpg';
 import { Link } from 'react-router-dom';
 import List from '../../components/list/List';
-import ListItem from '../../components/list/ListItem';
 import MobileMenu from '../../components/mobile-menu/MobileMenu';
 
 
 const Header = () => {
-
   const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const jwt = localStorage.getItem('token');
+
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (!openerRef.current.contains(e.target) && !mobileMenuRef.current.contains(e.target)) {
@@ -35,6 +35,10 @@ const Header = () => {
   const mobileMenuRef = React.createRef();
   const opacRef = React.createRef();
 
+  const handleLogOut = () => {
+    localStorage.removeItem('token');
+    window.location.reload();
+  }
 
   const openMobileMenu = () => {
     setIsMobileOpen(true);
@@ -86,7 +90,7 @@ const Header = () => {
                     <List classname={"d-flex flex-column gap-3 pt-3"} items={["Poster", "Product Focus", "Half / Half Split", "Naked Header + Tiles", "Fullscreen + Masonry"]} />
                   </li>
                 </ul>
-                
+
               </li>
               <li class="shopStylesHover">
                 <Link to="/shop" class="hover-link">Shop Styles</Link>
@@ -375,13 +379,22 @@ const Header = () => {
               </Link>
             </div>
             <div class="usericon d-none d-lg-flex position-relative">
-              <Link to={'/'}>
+              <div className='log-reg-wrapper'>
                 <i class="fa-regular fa-user fa-xl"></i>
-                <div class="d-flex flex-column">
-                  <span>Login</span>
-                  <span>Sign up</span>
-                </div>
-              </Link>
+                {
+                  !jwt ? (
+                    <div class="d-flex flex-column">
+                      <Link to={'/login'}>Login</Link>
+                      <Link to={'/register'}>Sign up</Link>
+                    </div>
+                  ) : (
+                    <div class="d-flex flex-column">
+                      <Link to={'/'}>Account Settings</Link>
+                      <Link to={'/'} onClick={handleLogOut}>Log Out</Link>
+                    </div>
+                  )
+                }
+              </div>
             </div>
           </div>
         </div>

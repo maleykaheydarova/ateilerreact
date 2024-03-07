@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const AddEntity = ({ apiUrl, entityName, propertyNames }) => {
     const [errorMessages, setErrorMessages] = useState({});
@@ -9,7 +9,7 @@ const AddEntity = ({ apiUrl, entityName, propertyNames }) => {
 
     useEffect(() => {
         propertyNames.map(property => (
-            setFormValues(prevValues => ({ ...prevValues, [property]: "" }))
+            setFormValues(prevValues => ({ ...prevValues, [property.toLowerCase()]: "" }))
         ))
     }, [apiUrl, entityName, propertyNames]);
 
@@ -19,13 +19,14 @@ const AddEntity = ({ apiUrl, entityName, propertyNames }) => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
         try {
+            const token = localStorage.getItem('token')
             const response = await fetch(`${apiUrl}/${entityName}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                Authorization: `Bearer ${token}`,
                 body: JSON.stringify(formValues),
             });
             if (response.ok) {
@@ -82,10 +83,9 @@ const AddEntity = ({ apiUrl, entityName, propertyNames }) => {
                                             ))}
                                         </div>
                                     </div>
-                                    <div className="mt-5 mb-0">
-                                        <button type="submit" className="btn btn-success w-100">
-                                            Save
-                                        </button>
+                                    <div className="mt-5 mb-0 d-flex gap-5">
+                                        <button type="submit" className="btn btn-success w-50">Save</button>
+                                        <Link to={`/admin/${entityName}`} className='btn btn-danger w-50'>Cancel</Link>
                                     </div>
                                 </form>
                             </div>

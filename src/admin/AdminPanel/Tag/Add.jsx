@@ -1,8 +1,11 @@
 import React from 'react'
+import Helper from '../../../Helpers/helper'
+import AddEntity from '../Components/AddEntity'
 
 const Add = () => {
+  const propertyNames = ["Name"]
   return (
-    <div>Add</div>
+    <AddEntity apiUrl={Helper} entityName={"Tag"} propertyNames={propertyNames}/>
   )
 }
 

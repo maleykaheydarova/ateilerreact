@@ -124,7 +124,7 @@ header {
 }
 
 .usericon {
-  a {
+  .log-reg-wrapper {
     color: #333;
     transition: all 0.5s;
     border-left: 1px solid lightgrey;
@@ -155,7 +155,7 @@ header {
       visibility: hidden;
       transition: all 0.5s;
 
-      span {
+      a {
         padding: 15px 20px;
         min-width: max-content;
         border-bottom: 1px solid #222;

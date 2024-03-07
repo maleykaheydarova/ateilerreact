@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const EntityTable = ({ apiUrl, entityName, propertyNames }) => {
     const [entities, setsetEntities] = useState([]);
     const [update, setUpdate] = useState(0);
-    // const [propertyNames, setPropertyNames] = useState([]);
 
     useEffect(() => {
         fetch(`${apiUrl}/${entityName}`)
@@ -15,14 +14,9 @@ const EntityTable = ({ apiUrl, entityName, propertyNames }) => {
             .catch(error => console.error('Error fetching data:', error));
     }, [update]);
 
-    // useEffect(() => {
-    //     if (entities.length > 0) {
-    //         setPropertyNames(Object.keys(entities[0]).filter(name => name != 'id'));
-    //     }
-    // }, [entities]);
-
     const handleDelete = async (id) => {
         try {
+            const token = localStorage.getItem('token')
             const response = await fetch(`${apiUrl}/${entityName}?id=${id}`, {
                 method: 'DELETE',
                 headers: {
