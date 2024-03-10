@@ -1,6 +1,8 @@
 import React from 'react'
-
+import {logOut} from '../../../Helpers/helper'
 const Header = () => {
+
+  
 
   return (
     <div class="wrapper d-flex flex-column bg-light">
@@ -16,7 +18,7 @@ const Header = () => {
             <use xlink:href="assets/brand/coreui.svg#full"></use>
           </svg></a> */}
           <ul class="header-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#">
+            <li class="nav-item"><a class="nav-link" href='' onClick={logOut}>
               <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
           </ul>
 

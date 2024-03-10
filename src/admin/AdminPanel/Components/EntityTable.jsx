@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { apiUrl, token } from '../../../Helpers/helper'
 
-const EntityTable = ({ apiUrl, entityName, propertyNames }) => {
-    const [entities, setsetEntities] = useState([]);
+const EntityTable = ({ entityName, propertyNames }) => {
+    const [entities, setEntities] = useState([]);
     const [update, setUpdate] = useState(0);
 
     useEffect(() => {
-        fetch(`${apiUrl}/${entityName}`)
+        fetch(`${apiUrl}/${entityName}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
-                setsetEntities(data);
+                setEntities(data);
             })
             .catch(error => console.error('Error fetching data:', error));
     }, [update]);
 
     const handleDelete = async (id) => {
         try {
-            const token = localStorage.getItem('token')
             const response = await fetch(`${apiUrl}/${entityName}?id=${id}`, {
                 method: 'DELETE',
                 headers: {
-                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
                 },
             });
 

@@ -1,11 +1,10 @@
 import React from 'react'
 import EditEntity from '../Components/EditEntity'
-import Helper from '../../../Helpers/helper'
 
 const Edit = () => {
     const properties = ["Name"]
     return (
-        <EditEntity apiUrl={Helper} entityName="Category" propertyNames={properties} />
+        <EditEntity entityName="Category" propertyNames={properties} />
         // <main>
         //     <div class="container">
         //         <div class="row justify-content-center">

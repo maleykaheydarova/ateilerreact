@@ -1,12 +1,11 @@
 import React from 'react'
 import AddEntity from '../Components/AddEntity'
-import Helper from '../../../Helpers/helper'
 
 const Add = () => {
   const properties = ["Name"]
   
   return (
-    <AddEntity apiUrl={Helper} entityName={"Category"} propertyNames={properties}/>
+    <AddEntity entityName={"Category"} propertyNames={properties}/>
 //     <main>
 //     <div class="container">
 //         <div class="row justify-content-center">

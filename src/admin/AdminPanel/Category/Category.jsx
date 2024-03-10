@@ -1,11 +1,10 @@
 import React from "react";
 import EntityTable from "../Components/EntityTable";
-import Helper from '../../../Helpers/helper'
 
 const Category = () => {
   const properties = ["Name"]
   return (
-    <EntityTable apiUrl={Helper} entityName={"Category"} propertyNames={properties}/>
+    <EntityTable entityName={"Category"} propertyNames={properties}/>
     // <div class="container-fluid">
     //   <h1 class="h3 mb-2 text-gray-800 mt-4">Category</h1>
 

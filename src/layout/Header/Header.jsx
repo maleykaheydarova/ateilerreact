@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import {logOut} from '../../Helpers/helper'
 import Logo from '../../assets/img/atelier-logo-alt2-dark.png';
 import Post from '../../assets/img/alvar-demo.jpg';
 import Post1 from '../../assets/img/rebel-demo.jpg';
@@ -34,11 +35,6 @@ const Header = () => {
   const openerRef = React.createRef();
   const mobileMenuRef = React.createRef();
   const opacRef = React.createRef();
-
-  const handleLogOut = () => {
-    localStorage.removeItem('token');
-    window.location.reload();
-  }
 
   const openMobileMenu = () => {
     setIsMobileOpen(true);
@@ -390,7 +386,7 @@ const Header = () => {
                   ) : (
                     <div class="d-flex flex-column">
                       <Link to={'/'}>Account Settings</Link>
-                      <Link to={'/'} onClick={handleLogOut}>Log Out</Link>
+                      <Link to={'/'} onClick={logOut}>Log Out</Link>
                     </div>
                   )
                 }

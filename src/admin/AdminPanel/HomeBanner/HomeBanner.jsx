@@ -6,9 +6,8 @@ const HomeBanner = (ArrayBody) => {
   const [data, setData] = useState({});
   const [Update, setUpdate] = useState(0);
 
-  const updateFunction = (x) => {
+  const updateFunction = () => {
     setUpdate(Update + 1);
-    console.log(x);
   };
 
   useEffect(() => {

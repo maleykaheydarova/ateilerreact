@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { apiUrl, token } from '../../../Helpers/helper'
 
-const EditEntity = ({ apiUrl, entityName, propertyNames }) => {
+const EditEntity = ({ entityName, propertyNames }) => {
     const navigate = useNavigate();
     const [errorMessages, setErrorMessages] = useState({});
     const { id } = useParams();
     const [formValues, setFormValues] = useState({});
 
-
     useEffect(() => {
-        fetch(`${apiUrl}/${entityName}/id?id=${id}`)
+        fetch(`${apiUrl}/${entityName}/id?id=${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 setFormValues(data);
             })
             .catch(error => console.error(`Error fetching ${entityName} data:`, error));
-    }, [apiUrl, entityName, id]);
+    }, [entityName, id]);
 
     const handleInputChange = (property, value) => {
         setFormValues(prevValues => ({ ...prevValues, [property]: value }));
@@ -29,6 +33,7 @@ const EditEntity = ({ apiUrl, entityName, propertyNames }) => {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
                 },
                 body: JSON.stringify(formValues),
             });

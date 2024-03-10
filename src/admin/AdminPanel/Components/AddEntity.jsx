@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { apiUrl, token } from '../../../Helpers/helper'
 
-const AddEntity = ({ apiUrl, entityName, propertyNames }) => {
+const AddEntity = ({ entityName, propertyNames }) => {
     const [errorMessages, setErrorMessages] = useState({});
     const [formValues, setFormValues] = useState({});
     const navigate = useNavigate();
@@ -20,13 +21,12 @@ const AddEntity = ({ apiUrl, entityName, propertyNames }) => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
-            const token = localStorage.getItem('token')
             const response = await fetch(`${apiUrl}/${entityName}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
                 },
-                Authorization: `Bearer ${token}`,
                 body: JSON.stringify(formValues),
             });
             if (response.ok) {
