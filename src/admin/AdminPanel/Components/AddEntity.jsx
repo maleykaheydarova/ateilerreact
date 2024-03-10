@@ -39,7 +39,7 @@ const AddEntity = ({ entityName, propertyNames }) => {
                             updatedErrorMessages[prop] = res.messages[dataIndex];
                         }
                     });
-                    setErrorMessages(prevValues => ({ ...prevValues, ...updatedErrorMessages }));
+                    setErrorMessages(prevValues => ({ ...prevValues, ...updatedErrorMessages}));
                 }
                 else {
                     navigate(`/admin/${entityName}`);

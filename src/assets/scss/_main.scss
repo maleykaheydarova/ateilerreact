@@ -10,6 +10,10 @@
 // admin panel
 @import"../../admin/AdminPanelLayout/Header/headeradmin";
 @import "../../admin//AdminPanelLayout//Aside/aside";
+// login and register
+@import "../../pages/loginandregister/login";
+@import "../../pages//loginandregister/register";
+
 @font-face {
     font-family: 'Dosis';
     src: url('../fonts/Dosis/Dosis-VariableFont_wght.ttf') format('truetype');
