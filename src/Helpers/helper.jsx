@@ -25,8 +25,4 @@ const logOut = () => {
     window.location.reload();
 }
 
-function generateBoundary() {
-    return '---------------------------' + Math.floor(Math.random() * 1000000000000000);
-}
-
-export { apiUrl, isTokenExpired, logOut, token, generateBoundary }
+export { apiUrl, isTokenExpired, logOut, token }

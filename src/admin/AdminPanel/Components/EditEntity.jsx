@@ -52,7 +52,6 @@ const EditEntity = ({ entityName, propertyNames }) => {
                 }
                 else {
                     navigate(`/admin/${entityName}`);
-                    console.log('Data updated successfully');
                 }
             } else {
                 console.error(`Error updating ${entityName} data:`, response.statusText);
