@@ -4,52 +4,58 @@ import { apiUrl, token } from '../../../Helpers/helper'
 
 const AddEntity = ({ entityName, propertyNames }) => {
     const [errorMessages, setErrorMessages] = useState({});
-    const [formValues, setFormValues] = useState({});
+    // const [formValues, setFormValues] = useState({});
+    const formValues = new FormData();
     const navigate = useNavigate();
 
 
     useEffect(() => {
+        // propertyNames.map(property => (
+        //     setFormValues(prevValues => ({ ...prevValues, [property.toLowerCase()]: "" }))
+        // ))
         propertyNames.map(property => (
-            setFormValues(prevValues => ({ ...prevValues, [property.toLowerCase()]: "" }))
+            formValues.append(`${property}`, "")
         ))
     }, [apiUrl, entityName, propertyNames]);
 
     const handleInputChange = (property, value) => {
-        setFormValues(prevValues => ({ ...prevValues, [property]: value }));
+        // setFormValues(prevValues => ({ ...prevValues, [property]: value }));
+        formValues.append(`${property}`, `${value}`)
     };
+
+    // const handleImageChange = (property, value) => {
+    //     setFormValues(prevValues => ({ ...prevValues, ["ImagePath"]: 'file' }))
+    //     setFormValues(prevValues => ({ ...prevValues, [property]: value }))
+    //     console.log(formValues);
+    // }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        try {
-            const response = await fetch(`${apiUrl}/${entityName}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                },
-                body: JSON.stringify(formValues),
-            });
-            if (response.ok) {
-                const res = await response.json();
-                if (!res.success) {
-                    const updatedErrorMessages = {};
-                    propertyNames.forEach(prop => {
-                        const dataIndex = res.data.indexOf(prop);
-                        if (dataIndex !== -1) {
-                            updatedErrorMessages[prop] = res.messages[dataIndex];
-                        }
-                    });
-                    setErrorMessages(prevValues => ({ ...prevValues, ...updatedErrorMessages }));
-                }
-                else {
-                    navigate(`/admin/${entityName}`);
-                    console.log('Data added successfully');
-                }
-            } else {
-                console.error('Error adding data:', response.statusText);
+        const response = await fetch(`${apiUrl}/${entityName}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(formValues),
+        });
+        if (response.ok) {
+            const res = await response.json();
+            if (!res.success) {
+                const updatedErrorMessages = {};
+                propertyNames.forEach(prop => {
+                    const dataIndex = res.data.indexOf(prop);
+                    if (dataIndex !== -1) {
+                        updatedErrorMessages[prop] = res.messages[dataIndex];
+                    }
+                });
+                setErrorMessages(prevValues => ({ ...prevValues, ...updatedErrorMessages }));
             }
-        } catch (error) {
-            console.error('Error adding data:', error);
+            else {
+                navigate(`/admin/${entityName}`);
+            }
+        } else {
+            console.error(response);
         }
     };
 
@@ -63,23 +69,38 @@ const AddEntity = ({ entityName, propertyNames }) => {
                                 <h3 className="text-center font-weight-light my-4">Add {entityName}</h3>
                             </div>
                             <div className="card-body">
-                                <form onSubmit={handleFormSubmit}>
+                                <form onSubmit={handleFormSubmit} encType='multipart/form-data'>
                                     <div className="row mb-3">
                                         <div className="col-md-12 w-100">
                                             {propertyNames.map(property => (
-                                                <div key={property} className="form-floating mb-3 mb-md-3">
-                                                    <input
-                                                        type="text"
-                                                        className="form-control w-100"
-                                                        id={property}
-                                                        placeholder={`Enter ${property}`}
-                                                        onChange={(e) => handleInputChange(property.toLowerCase(), e.target.value)}
-                                                    />
-                                                    <label htmlFor={property} className="w-25">
-                                                        {property.charAt(0).toUpperCase() + property.slice(1)}
-                                                    </label>
-                                                    <p className='text-danger'>{errorMessages[property]}</p>
-                                                </div>
+                                                property.toLowerCase().includes("image") ?
+                                                    (<div key={property} className="form-floating mb-3 mb-md-3">
+                                                        <input
+                                                            type="file"
+                                                            className="form-control w-100"
+                                                            id={property}
+                                                            onChange={(e) => handleInputChange(property.toLowerCase(), e.target.value)}
+                                                        />
+                                                        <label htmlFor={property} className="w-25">
+                                                            {property.charAt(0).toUpperCase() + property.slice(1)}
+                                                        </label>
+                                                        <p className='text-danger'>{errorMessages[property]}</p>
+                                                    </div>)
+                                                    : (
+                                                        <div key={property} className="form-floating mb-3 mb-md-3">
+                                                            <input
+                                                                type="text"
+                                                                className="form-control w-100"
+                                                                id={property}
+                                                                placeholder={`Enter ${property}`}
+                                                                onChange={(e) => handleInputChange(property.toLowerCase(), e.target.value)}
+                                                            />
+                                                            <label htmlFor={property} className="w-25">
+                                                                {property.charAt(0).toUpperCase() + property.slice(1)}
+                                                            </label>
+                                                            <p className='text-danger'>{errorMessages[property]}</p>
+                                                        </div>
+                                                    )
                                             ))}
                                         </div>
                                     </div>
