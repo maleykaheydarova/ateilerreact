@@ -3,8 +3,8 @@ import { Route, Routes } from "react-router-dom";
 //Pages
 import Layout from "../layout/Layout/Layout";
 import Home from "../pages/home/Home";
-import Login from "../pages/loginandregister/Login";
-import Register from "../pages/loginandregister/Register";
+import Login from "../pages/loginandregister/login/Login";
+import Register from "../pages/loginandregister/register/Register";
 import Shop from "../pages/shop/Shop";
 import Half from "../pages/half/Half";
 import Lookbook from "../pages/lookbook/Lookbook";

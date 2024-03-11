@@ -51,6 +51,7 @@ const Aside = () => {
             {" "}
             <i class="fa-solid fa-weight-hanging me-3"></i> Size
           </Link>
+         
         </li>
         <li class="nav-item">
           <Link class="nav-link" to="/admin/color">

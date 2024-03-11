@@ -35,7 +35,37 @@ const Register = () => {
     };
 
     return (
-        <div>
+        <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="card mb-4 mx-4">
+                <div class="card-body p-4">
+                  <h1>Register</h1>
+                  <p class="text-medium-emphasis">Create your account</p>
+                  <div class="input-group mb-3"><span class="input-group-text">
+                  <i class="fa-solid fa-user"></i>
+                      </span>
+                    <input value={username} onChange={(e) => setUsername(e.target.value)} class="form-control" type="text" placeholder="Username"/>
+                  </div>
+                  <div class="input-group mb-3"><span class="input-group-text">
+                  <i class="fa-solid fa-lock"></i>
+                      </span>
+                    <input value={password} onChange={(e) => setPassword(e.target.value)} class="form-control" type="password" placeholder="Password"/>
+                  </div>
+                  <div class="input-group mb-3"><span class="input-group-text">
+                  <i class="fa-solid fa-pen"></i>
+                      </span>
+                    <input value={role} onChange={(e) => setRole(e.target.value)} class="form-control" type="text" placeholder="Role"/>
+                  </div>
+                  <button class="btn btn-block button-login" type="button" onClick={handleRegister}>Create Account</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        /* <div>
             <h1>Register</h1>
             <form>
                 <label>
@@ -57,7 +87,7 @@ const Register = () => {
                     Register
                 </button>
             </form>
-        </div>
+        </div> */
     );
 };
 

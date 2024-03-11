@@ -26,7 +26,27 @@
     background-clip: border-box;
     border: var(--cui-card-border-width) solid var(--cui-card-border-color);
     border-radius: var(--cui-card-border-radius);
+    .button-login{
+      background-color:#fff ;
+      color: #252525;
+      font-weight: 700;
+      border: 1px solid #252525;
+      &:hover{
+        border: 1px solid #EABE12;
+        color:#EABE12 ;
+      }
+    }
+    .link-color{
+      color:  #252525;
+      &:hover{
+        color:#EABE12 ;
+      }
+    }
+   
   }
+  .card-color{
+    background-color: #252525;
+  } 
   .card > hr {
     margin-right: 0;
     margin-left: 0;
