@@ -35,7 +35,7 @@ const Register = () => {
     };
 
     return (
-        <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+        <div class="bg-color min-vh-100 d-flex flex-row align-items-center">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-6">

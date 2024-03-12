@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <div class="bg-color min-vh-100 d-flex flex-row align-items-center">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8">
@@ -78,14 +78,7 @@ const Login = () => {
                           Login
                         </button>
                       </div>
-                      <div class="col-6 text-end link-color">
-                        <button
-                          class="btn btn-link px-0 link-color"
-                          type="button"
-                        >
-                          Forgot password?
-                        </button>
-                      </div>
+
                     </div>
                   </form>
                 </div>
