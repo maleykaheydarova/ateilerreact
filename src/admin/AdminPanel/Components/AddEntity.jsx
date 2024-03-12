@@ -4,40 +4,50 @@ import { apiUrl, token } from '../../../Helpers/helper'
 
 const AddEntity = ({ entityName, propertyNames }) => {
     const [errorMessages, setErrorMessages] = useState({});
-    // const [formValues, setFormValues] = useState({});
-    const formValues = new FormData();
+    const [formValues, setFormValues] = useState({});
     const navigate = useNavigate();
 
-
     useEffect(() => {
-        // propertyNames.map(property => (
-        //     setFormValues(prevValues => ({ ...prevValues, [property.toLowerCase()]: "" }))
-        // ))
         propertyNames.map(property => (
-            formValues.append(`${property}`, "")
+            setFormValues(prevValues => ({ ...prevValues, [property.toLowerCase()]: "" }))
         ))
     }, [apiUrl, entityName, propertyNames]);
 
+    const imageExistence = Object.keys(formValues).some(key => key.toLowerCase().includes("image"));
+
     const handleInputChange = (property, value) => {
-        // setFormValues(prevValues => ({ ...prevValues, [property]: value }));
-        formValues.append(`${property}`, `${value}`)
+        setFormValues(prevValues => ({ ...prevValues, [property]: value }));
+        console.log(formValues);
     };
 
-    // const handleImageChange = (property, value) => {
-    //     setFormValues(prevValues => ({ ...prevValues, ["ImagePath"]: 'file' }))
-    //     setFormValues(prevValues => ({ ...prevValues, [property]: value }))
-    //     console.log(formValues);
-    // }
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+
+        const headers = {
+            Authorization: `Bearer ${token}`,
+        };
+
+        if (!imageExistence) {
+            headers['Content-Type'] = 'application/json';
+        }
+
+        if (imageExistence) {
+            var data = new FormData();
+
+            Object.entries(formValues).forEach(([property, value]) => {
+                data.append(property, value);
+                if (property === 'image') {
+                    data.append("ImagePath", 'file');
+                }
+            });
+
+        }
+
         const response = await fetch(`${apiUrl}/${entityName}`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify(formValues),
+            headers,
+            body: imageExistence ? data : JSON.stringify(formValues),
         });
         if (response.ok) {
             const res = await response.json();
@@ -49,7 +59,7 @@ const AddEntity = ({ entityName, propertyNames }) => {
                         updatedErrorMessages[prop] = res.messages[dataIndex];
                     }
                 });
-                setErrorMessages(prevValues => ({ ...prevValues, ...updatedErrorMessages}));
+                setErrorMessages(prevValues => ({ ...prevValues, ...updatedErrorMessages }));
             }
             else {
                 navigate(`/admin/${entityName}`);
@@ -69,7 +79,7 @@ const AddEntity = ({ entityName, propertyNames }) => {
                                 <h3 className="text-center font-weight-light my-4">Add {entityName}</h3>
                             </div>
                             <div className="card-body">
-                                <form onSubmit={handleFormSubmit} encType='multipart/form-data'>
+                                <form onSubmit={handleFormSubmit}>
                                     <div className="row mb-3">
                                         <div className="col-md-12 w-100">
                                             {propertyNames.map(property => (
@@ -79,7 +89,7 @@ const AddEntity = ({ entityName, propertyNames }) => {
                                                             type="file"
                                                             className="form-control w-100"
                                                             id={property}
-                                                            onChange={(e) => handleInputChange(property.toLowerCase(), e.target.value)}
+                                                            onChange={(e) => handleInputChange(property.toLowerCase(), e.target.files[0])}
                                                         />
                                                         <label htmlFor={property} className="w-25">
                                                             {property.charAt(0).toUpperCase() + property.slice(1)}
