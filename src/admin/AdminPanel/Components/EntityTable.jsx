@@ -71,12 +71,12 @@ const EntityTable = ({ entityName, propertyNames }) => {
                                         {propertyNames.map((propertyName) => (
                                             <td key={propertyName}>{item[propertyName.toLowerCase()]}</td>
                                         ))}
-                                        <td className='text-center'>
-                                            <Link to={`edit/${item.id}`} className="btn btn-primary">
+                                        <td>
+                                            <Link to={`edit/${item.id}`} className="btn btn-success">
                                                 Edit
                                             </Link>
                                         </td>
-                                        <td className='text-center'>
+                                        <td>
                                             <button
                                                 onClick={() => handleDelete(item.id)}
                                                 className="btn btn-danger"
