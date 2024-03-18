@@ -38,19 +38,15 @@ const AddEntity = ({ entityName, propertyNames }) => {
         }
 
         if (imageExistence) {
-            setFormValues(prevValues => ({ ...prevValues, "ImagePath": 'asd' }))
-            headers['Content-Type'] = 'multipart/form-data'
-            // var data = new FormData();
-            // Object.entries(formValues).forEach(([property, value]) => {
-            //     data.append(property, value)
-            //     data.append("ImagePath", "asd")
-            // });
+            var data = new FormData();
+            data.append("image", formValues["image"])
+            data.append("ImagePath", "asd")
         }
 
         const response = await fetch(`${apiUrl}/${entityName}`, {
             method: 'POST',
             headers,
-            body: imageExistence ? formValues : JSON.stringify(formValues),
+            body: imageExistence ? data : JSON.stringify(formValues),
         });
 
         if (response.ok) {
@@ -58,10 +54,19 @@ const AddEntity = ({ entityName, propertyNames }) => {
             if (!res.success) {
                 const updatedErrorMessages = {};
                 propertyNames.forEach(prop => {
-                    const dataIndex = res.data.indexOf(prop);
-                    if (dataIndex !== -1) {
-                        updatedErrorMessages[prop] = res.messages[dataIndex];
+                    if (prop === 'Image') {
+                        const dataIndex = res.data.indexOf("ImagePath")
+                        if (dataIndex !== -1) {
+                            updatedErrorMessages[prop] = res.messages[dataIndex];
+                        }
                     }
+                    else {
+                        const dataIndex = res.data.indexOf(prop);
+                        if (dataIndex !== -1) {
+                            updatedErrorMessages[prop] = res.messages[dataIndex];
+                        }
+                    }
+
                 });
                 setErrorMessages(prevValues => ({ ...prevValues, ...updatedErrorMessages }));
             }
@@ -99,7 +104,7 @@ const AddEntity = ({ entityName, propertyNames }) => {
                                                             <label htmlFor={property} className="w-25">
                                                                 {property}
                                                             </label>
-                                                            <p className='text-danger'>{errorMessages["ImagePath"]}</p>
+                                                            <p className='text-danger'>{errorMessages[property]}</p>
                                                         </div>
                                                     )
                                                     :
