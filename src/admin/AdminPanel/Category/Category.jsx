@@ -2,9 +2,9 @@ import React from "react";
 import EntityTable from "../Components/EntityTable";
 
 const Category = () => {
-  const properties = ["Name"]
+  const propertyNames = ["Name"]
   return (
-    <EntityTable entityName={"Category"} propertyNames={properties}/>
+    <EntityTable entityName={"Category"} propertyNames={propertyNames}/>
     // <div class="container-fluid">
     //   <h1 class="h3 mb-2 text-gray-800 mt-4">Category</h1>
 

@@ -18,47 +18,43 @@ const HomeSwiper = () => {
                     loop={true}
                 >
                     <SwiperSlide>
-                        <div class="slider slider-achil">
-                            <div class="container d-flex flex-column gap-3">
-                                <p class="slider-title">
+                        <div className="slider slider-achil">
+                            <div className="container d-flex flex-column gap-3">
+                                <p className="slider-title">
                                     New Achilles Mid
                                     <br />
                                     is now available.
                                 </p>
-                                <p class="learn-btn">
-                                    <a href="#">
-                                        <span>Learn More</span>
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </p>
-                                <p class="add-to-cart-btn">
-                                    <a href="#">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                        <span>Add To Cart</span>
-                                    </a>
-                                </p>
+                                <button className="learn-btn">
+                                    <span>Learn More</span>
+                                    <i className="fa-solid fa-arrow-right"></i>
+                                </button>
+                                <button className="add-to-cart-btn">
+                                    <i className="fa-solid fa-cart-plus"></i>
+                                    <span>Add To Cart</span>
+                                </button>
                             </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div class="slider slider-ateiler">
-                            <div class="slider-opac"></div>
-                            <div class="container d-flex flex-column gap-3 justify-content-center align-items-center">
-                                <div class="slider-text">
+                        <div className="slider slider-ateiler">
+                            <div className="slider-opac"></div>
+                            <div className="container d-flex flex-column gap-3 justify-content-center align-items-center">
+                                <div className="slider-text">
                                     <p>Inside Atelier: A Snea Reek</p>
                                     <p>Into Our Amazing Shop</p>
                                 </div>
-                                <p class="learn-more-btn">
+                                <p className="learn-more-btn">
                                     <a href="#">
                                         <span>LEARN MORE</span>
-                                        <i class="fa-solid fa-arrow-right"></i>
+                                        <i className="fa-solid fa-arrow-right"></i>
                                     </a>
                                 </p>
                             </div>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div class="slider slider-workshop">
+                        <div className="slider slider-workshop">
                             <img src={require('../../assets/img/swiper-img.png')} />
                         </div>
                     </SwiperSlide>

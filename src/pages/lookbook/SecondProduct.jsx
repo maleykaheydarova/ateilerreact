@@ -56,9 +56,9 @@ const SecondProduct = () => {
   return (
     <>
       <Banner heading={"Two."} imgsource={BannerImg} imgsource2={BannerImg2} />
-      <section class="twoproduct">
-        <div class="container cards-with-hover">
-          <div class="textheader my-3">
+      <section className="twoproduct">
+        <div className="container cards-with-hover">
+          <div className="textheader my-3">
             <h5>
               <span>GET THIS LOOK</span>
             </h5>

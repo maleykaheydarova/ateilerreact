@@ -1,8 +1,10 @@
 import React from 'react'
+import EntityTable from '../Components/EntityTable'
 
 const Post = () => {
+  const propertyNames = ["Name", "Author", "Description", "Image", "CreatedDate"]
   return (
-    <div>Post</div>
+    <EntityTable entityName={"Post"} propertyNames={propertyNames} />
   )
 }
 

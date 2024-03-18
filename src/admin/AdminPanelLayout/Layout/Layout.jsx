@@ -7,11 +7,11 @@ import { isTokenExpired } from '../../../Helpers/helper'
 const Layout = () => {
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (isTokenExpired()) {
-  //     navigate('/login')
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (isTokenExpired()) {
+      navigate('/login')
+    }
+  }, [])
 
 
   return (

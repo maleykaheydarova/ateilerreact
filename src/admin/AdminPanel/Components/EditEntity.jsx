@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { apiUrl, token } from '../../../Helpers/helper'
+import { token } from '../../../Helpers/helper'
+import { apiUrl } from '../../../Helpers/apiHelper'
 
 const EditEntity = ({ entityName, propertyNames }) => {
     const navigate = useNavigate();
@@ -21,6 +22,8 @@ const EditEntity = ({ entityName, propertyNames }) => {
             .catch(error => console.error(`Error fetching ${entityName} data:`, error));
     }, [entityName, id]);
 
+    const imageExistence = Object.keys(formValues).some(key => key.toLowerCase().includes("image"));
+
     const handleInputChange = (property, value) => {
         setFormValues(prevValues => ({ ...prevValues, [property]: value }));
     };
@@ -28,14 +31,30 @@ const EditEntity = ({ entityName, propertyNames }) => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
+        const headers = {
+            Authorization: `Bearer ${token}`,
+        };
+
+        if (!imageExistence) {
+            headers['Content-Type'] = 'application/json';
+        }
+
+        if (imageExistence) {
+            var data = new FormData();
+
+            Object.entries(formValues).forEach(([property, value]) => {
+                data.append(property, value);
+                if (property === 'image') {
+                    data.append("ImagePath", 'file');
+                }
+            });
+        }
+
         try {
             const response = await fetch(`${apiUrl}/${entityName}`, {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                },
-                body: JSON.stringify(formValues),
+                headers,
+                body: imageExistence ? data : JSON.stringify(formValues),
             });
 
             if (response.ok) {
@@ -77,18 +96,33 @@ const EditEntity = ({ entityName, propertyNames }) => {
                                                 <label for="ID" className="w-25">ID</label>
                                             </div>
                                             {propertyNames.map(property => (
-                                                <div key={property} className="form-floating mb-3 mb-md-3">
-                                                    <input
-                                                        type="text"
-                                                        value={formValues[property.toLowerCase()] || ''}
-                                                        onChange={(e) => handleInputChange(property.toLowerCase(), e.target.value)}
-                                                        className="form-control w-100"
-                                                        id={property}
-                                                        placeholder={`Enter ${property}`}
-                                                    />
-                                                    <label htmlFor={property} className="w-25">{property.charAt(0).toUpperCase() + property.slice(1)}</label>
-                                                    <p className='text-danger'>{errorMessages[property]}</p>
-                                                </div>
+                                                property.toLowerCase().includes("image") ? (
+                                                    <div key={property} className="form-floating mb-3 mb-md-3">
+                                                        <input
+                                                            type="file"
+                                                            className="form-control w-100"
+                                                            id={property}
+                                                            onChange={(e) => handleInputChange(property.toLowerCase(), e.target.files[0])}
+                                                        />
+                                                        <label htmlFor={property} className="w-25">
+                                                            {property.charAt(0).toUpperCase() + property.slice(1)}
+                                                        </label>
+                                                        <p className='text-danger'>{errorMessages[property]}</p>
+                                                    </div>
+                                                ) : (
+                                                    <div key={property} className="form-floating mb-3 mb-md-3">
+                                                        <input
+                                                            type="text"
+                                                            value={formValues[property.toLowerCase()] || ''}
+                                                            onChange={(e) => handleInputChange(property.toLowerCase(), e.target.value)}
+                                                            className="form-control w-100"
+                                                            id={property}
+                                                            placeholder={`Enter ${property}`}
+                                                        />
+                                                        <label htmlFor={property} className="w-25">{property.charAt(0).toUpperCase() + property.slice(1)}</label>
+                                                        <p className='text-danger'>{errorMessages[property]}</p>
+                                                    </div>
+                                                )
                                             ))}
                                         </div>
                                     </div>
@@ -101,7 +135,7 @@ const EditEntity = ({ entityName, propertyNames }) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         </main >
     );
 };

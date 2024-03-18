@@ -1,43 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { apiUrl, token } from '../../../Helpers/helper'
+import { token } from '../../../Helpers/helper'
+import { getAllData, handleDelete } from '../../../Helpers/apiHelper'
 
 const EntityTable = ({ entityName, propertyNames }) => {
     const [entities, setEntities] = useState([]);
     const [update, setUpdate] = useState(0);
 
     useEffect(() => {
-        fetch(`${apiUrl}/${entityName}`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                setEntities(data);
-            })
-            .catch(error => console.error('Error fetching data:', error));
+        getAllData(entityName, setEntities)
     }, [update]);
-
-    const handleDelete = async (id) => {
-        try {
-            const response = await fetch(`${apiUrl}/${entityName}?id=${id}`, {
-                method: 'DELETE',
-                headers: {
-                    Authorization: `Bearer ${token}`
-                },
-            });
-
-            if (response.ok) {
-                console.log(`Color with ID ${id} deleted successfully`);
-                setUpdate(update + 1);
-            } else {
-                console.error(`Error deleting color with ID ${id}:`, response.statusText);
-            }
-        } catch (error) {
-            console.error('Error deleting color:', error);
-        }
-    };
 
     return (
         <div className="container-fluid">
@@ -49,9 +21,9 @@ const EntityTable = ({ entityName, propertyNames }) => {
                 <div className="card-body">
                     <div className="table-responsive">
                         <table
-                            className="table table-bordered table-striped"
+                            className="table table-bordered table-striped table-centered"
                             id="dataTable"
-                            width="100%"
+                            width={"25%"}
                             cellSpacing="0"
                         >
                             <thead>
@@ -69,7 +41,11 @@ const EntityTable = ({ entityName, propertyNames }) => {
                                     <tr key={index}>
                                         <td>{index + 1}</td>
                                         {propertyNames.map((propertyName) => (
-                                            <td key={propertyName}>{item[propertyName.toLowerCase()]}</td>
+                                            propertyName.toLowerCase().includes("image") ? (
+                                                <td key={propertyName} width={"250px"}><img src={item["imagePath"]} className='img-fluid' /></td>
+                                            ) : (
+                                                <td key={propertyName}>{item[propertyName.charAt(0).toLowerCase() + propertyName.slice(1)]}</td>
+                                            )
                                         ))}
                                         <td className='text-center'>
                                             <Link to={`edit/${item.id}`} className="btn btn-primary">
@@ -78,7 +54,7 @@ const EntityTable = ({ entityName, propertyNames }) => {
                                         </td>
                                         <td className='text-center'>
                                             <button
-                                                onClick={() => handleDelete(item.id)}
+                                                onClick={() => handleDelete(item.id, () => setUpdate(update + 1), entityName, token)}
                                                 className="btn btn-danger"
                                             >
                                                 Delete

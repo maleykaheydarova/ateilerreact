@@ -2,9 +2,9 @@ import React from 'react'
 import AddEntity from '../Components/AddEntity';
 
 const Add = () => {
-  const properties = ["image"]
+  const propertyNames = ["Image"]
   return (
-    <AddEntity entityName={"HomeBanner"} propertyNames={properties} />
+    <AddEntity entityName={"HomeBanner"} propertyNames={propertyNames} />
   );
 }
 

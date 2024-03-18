@@ -1,8 +1,10 @@
 import React from 'react'
+import EditEntity from '../Components/EditEntity'
 
 const Edit = () => {
+  const propertyNames = ["Name", "Author", "Description", "Image"]
   return (
-    <div>Edit</div>
+    <EditEntity entityName={"Post"} propertyNames={propertyNames}/>
   )
 }
 

@@ -2,9 +2,9 @@ import React from 'react'
 import EditEntity from '../Components/EditEntity'
 
 const Edit = () => {
-  const properties = ["Name"]
+  const propertyNames = ["Name"]
   return (
-    <EditEntity entityName={"Size"} propertyNames={properties}/>
+    <EditEntity entityName={"Size"} propertyNames={propertyNames}/>
   )
 }
 

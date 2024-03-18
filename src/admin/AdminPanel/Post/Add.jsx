@@ -1,8 +1,12 @@
 import React from 'react'
+import AddEntity from '../Components/AddEntity'
 
 const Add = () => {
+
+  const propertyNames = ["Name", "Author", "Description", "Image"]
+
   return (
-    <div>Add</div>
+    <AddEntity entityName={"Post"} propertyNames={propertyNames} />
   )
 }
 

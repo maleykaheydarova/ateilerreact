@@ -2,10 +2,10 @@ import React from 'react'
 import AddEntity from '../Components/AddEntity'
 
 const Add = () => {
-  const properties = ["Name"]
+  const propertyNames = ["Name"]
   
   return (
-    <AddEntity entityName={"Category"} propertyNames={properties}/>
+    <AddEntity entityName={"Category"} propertyNames={propertyNames}/>
 //     <main>
 //     <div class="container">
 //         <div class="row justify-content-center">

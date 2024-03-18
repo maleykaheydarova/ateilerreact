@@ -34,53 +34,53 @@ const Login = () => {
   };
 
   return (
-    <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="card-group d-block d-md-flex row">
-              <div class="card col-md-7 p-4 mb-0">
-                <div class="card-body">
+    <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-lg-8">
+            <div className="card-group d-block d-md-flex row">
+              <div className="card col-md-7 p-4 mb-0">
+                <div className="card-body">
                   <form action="">
                     <h1>Login</h1>
-                    <p class="text-medium-emphasis">Sign In to your account</p>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text">
-                        <i class="fa-solid fa-user"></i>
+                    <p className="text-medium-emphasis">Sign In to your account</p>
+                    <div className="input-group mb-3">
+                      <span className="input-group-text">
+                        <i className="fa-solid fa-user"></i>
                       </span>
                       <input
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        class="form-control"
+                        className="form-control"
                         placeholder="Username"
                       />
                     </div>
-                    <div class="input-group mb-4">
-                      <span class="input-group-text">
-                        <i class="fa-solid fa-lock"></i>
+                    <div className="input-group mb-4">
+                      <span className="input-group-text">
+                        <i className="fa-solid fa-lock"></i>
                       </span>
                       <input
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        class="form-control"
+                        className="form-control"
                         placeholder="Password"
                       />
                     </div>
-                    <div class="row">
-                      <div class="col-6">
+                    <div className="row">
+                      <div className="col-6">
                         <button
-                          class="btn button-login px-4"
+                          className="btn button-login px-4"
                           onClick={handleLogin}
                           type="button"
                         >
                           Login
                         </button>
                       </div>
-                      <div class="col-6 text-end link-color">
+                      <div className="col-6 text-end link-color">
                         <button
-                          class="btn btn-link px-0 link-color"
+                          className="btn btn-link px-0 link-color"
                           type="button"
                         >
                           Forgot password?
@@ -90,8 +90,8 @@ const Login = () => {
                   </form>
                 </div>
               </div>
-              <div class="card col-md-5 text-white card-color py-5">
-                <div class="card-body text-center">
+              <div className="card col-md-5 text-white card-color py-5">
+                <div className="card-body text-center">
                   <div>
                     <h2>Sign up</h2>
                     <p>
@@ -101,7 +101,7 @@ const Login = () => {
                     </p>
                     <Link to="/register">
                       <button
-                        class="btn btn-lg btn-outline-light mt-3"
+                        className="btn btn-lg btn-outline-light mt-3"
                         type="button"
                       >
                         Register Now!
