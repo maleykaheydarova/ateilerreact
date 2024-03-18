@@ -8,7 +8,7 @@ import Register from "../pages/loginandregister/register/Register";
 import Shop from "../pages/shop/Shop";
 import Half from "../pages/half/Half";
 import Lookbook from "../pages/lookbook/Lookbook";
-import Product from "../pages/product/Product";
+import ProductLayout from "../pages/product/ProductLayout";
 import Cart from "../pages/cart/Cart";
 import AdminPanelLayout from "../admin/AdminPanelLayout/Layout/Layout";
 //Admin
@@ -62,7 +62,7 @@ const LinkRouter = () => {
         <Route path="shop" element={<Shop />} />
         <Route path="half" element={<Half />} />
         <Route path="lookbook" element={<Lookbook />} />
-        <Route path="product" element={<Product />} />
+        <Route path="product" element={<ProductLayout />} />
         <Route path="cart" element={<Cart />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />

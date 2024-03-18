@@ -3,7 +3,7 @@ import ProductSwiper from './ProductSwiper'
 import AdditionalInfoSection from './AdditionalInfoSection'
 
 
-const ProductSwiperSection = () => {
+const ProductSwiperSection = ({refer, func}) => {
   return (
     <div className="container-lg container-fluid product-info-box">
       <div className="row pt-4 pb-5">

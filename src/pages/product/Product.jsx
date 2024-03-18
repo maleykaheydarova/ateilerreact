@@ -2,7 +2,7 @@ import React from 'react'
 import ProductSwiperSection from './ProductSwiperSection'
 import HeaderPhoto from '../../assets/img/Atelier-header-turtleneck-bkg.jpg'
 import RelatedProducts from './RelatedProducts'
-const Product = () => {
+const Product = ({refer, func}) => {
   return (
     <div className="product-swiper-section">
      {/* product section  */}

@@ -47,12 +47,12 @@ const EntityTable = ({ entityName, propertyNames }) => {
                                                 <td key={propertyName}>{item[propertyName.charAt(0).toLowerCase() + propertyName.slice(1)]}</td>
                                             )
                                         ))}
-                                        <td className='text-center'>
-                                            <Link to={`edit/${item.id}`} className="btn btn-primary">
+                                        <td>
+                                            <Link to={`edit/${item.id}`} className="btn btn-success">
                                                 Edit
                                             </Link>
                                         </td>
-                                        <td className='text-center'>
+                                        <td>
                                             <button
                                                 onClick={() => handleDelete(item.id, () => setUpdate(update + 1), entityName, token)}
                                                 className="btn btn-danger"
