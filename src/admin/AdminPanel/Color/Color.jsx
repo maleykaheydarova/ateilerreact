@@ -2,9 +2,9 @@ import React from 'react';
 import EntityTable from '../Components/EntityTable';
 
 const Color = () => {
-  const properties = ["Name"]
+  const propertyNames = ["Name"]
   return (
-    <EntityTable entityName={'Color'} propertyNames={properties}/>
+    <EntityTable entityName={'Color'} propertyNames={propertyNames}/>
   )
 };
 

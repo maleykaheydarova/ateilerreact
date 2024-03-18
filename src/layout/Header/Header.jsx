@@ -59,26 +59,26 @@ const Header = () => {
       <MobileMenu refer={mobileMenuRef} opacrefer={opacRef} />
 
       <header>
-        <div class="containers row mx-0 w-100">
-          <div class="col-2 d-flex">
-            <div class="baricon me-4" onClick={openMobileMenu} ref={openerRef}>
-              <Link><i class="fa-solid fa-bars fa-lg"></i></Link>
+        <div className="containers row mx-0 w-100">
+          <div className="col-2 d-flex">
+            <div className="baricon me-4" onClick={openMobileMenu} ref={openerRef}>
+              <Link><i className="fa-solid fa-bars fa-lg"></i></Link>
             </div>
 
-            <div class="d-none d-lg-flex magnifyingicon">
-              <Link to={'/'}><i class="fa-solid fa-magnifying-glass fa-lg"></i></Link>
+            <div className="d-none d-lg-flex magnifyingicon">
+              <Link to={'/'}><i className="fa-solid fa-magnifying-glass fa-lg"></i></Link>
             </div>
           </div>
           <div
-            class="navimg col-8 d-flex justify-content-center align-items-center gap-4"
+            className="navimg col-8 d-flex justify-content-center align-items-center gap-4"
           >
             <ul
-              class="d-none d-lg-flex d-flex justify-content-between align-items-center gap-4"
+              className="d-none d-lg-flex d-flex justify-content-between align-items-center gap-4"
             >
-              <li class="homehover">
-                <Link to="/" class="hover-link">Home</Link>
+              <li className="homehover">
+                <Link to="/" className="hover-link">Home</Link>
 
-                <ul class="homehoverin d-flex gap-5">
+                <ul className="homehoverin d-flex gap-5">
                   <li>
                     <List classname={"d-flex flex-column gap-3 pt-3"} items={["Landing", "Animated Header", "Tiles Tiles Tiles", "Multi-Masonry", "Modern Classic"]} />
                   </li>
@@ -88,10 +88,10 @@ const Header = () => {
                 </ul>
 
               </li>
-              <li class="shopStylesHover">
-                <Link to="/shop" class="hover-link">Shop Styles</Link>
-                <ul class="shopStylesHoverin">
-                  <li class="d-flex justify-content-evenly">
+              <li className="shopStylesHover">
+                <Link to="/shop" className="hover-link">Shop Styles</Link>
+                <ul className="shopStylesHoverin">
+                  <li className="d-flex justify-content-evenly">
                     <List classname={"d-flex flex-column gap-3 pt-3"} heading={"Shop Styles"} items={[
                       "Standard Full-width",
                       "Standard w/ sidebar",
@@ -134,10 +134,10 @@ const Header = () => {
                 </ul>
               </li>
 
-              <li class="featuresHover">
-                <Link href="features.html" class="hover-link">Features</Link>
-                <ul class="featuresHoverin">
-                  <li class="d-flex justify-content-evenly">
+              <li className="featuresHover">
+                <Link href="features.html" className="hover-link">Features</Link>
+                <ul className="featuresHoverin">
+                  <li className="d-flex justify-content-evenly">
                     <List classname={"d-flex flex-column gap-3 pt-3"} items={[
                       "Stunning Modern Design",
                       "Custom Shop Icon Font",
@@ -201,11 +201,11 @@ const Header = () => {
               </Link>
             </div>
 
-            <ul class="d-none d-lg-flex d-flex align-items-center gap-4">
-              <li class="pagesHover">
+            <ul className="d-none d-lg-flex d-flex align-items-center gap-4">
+              <li className="pagesHover">
                 <Link to={'/'} className='hover-link'>Pages</Link>
-                <ul class="pagesHoverin">
-                  <li class="d-flex justify-content-evenly">
+                <ul className="pagesHoverin">
+                  <li className="d-flex justify-content-evenly">
                     <List classname={"d-flex flex-column gap-3 pt-3"} heading={"General"} items={[
                       "About Me",
                       "About Us",
@@ -257,10 +257,10 @@ const Header = () => {
                   </li>
                 </ul>
               </li>
-              <li class="elementsHover">
+              <li className="elementsHover">
                 <Link to={'/'} className='hover-link'>Elements</Link>
-                <ul class="elementsHoverin">
-                  <li class="d-flex justify-content-evenly">
+                <ul className="elementsHoverin">
+                  <li className="d-flex justify-content-evenly">
                     <List classname={"d-flex flex-column gap-3 pt-3"} items={[
                       "Animation",
                       "Accordion & Toggles",
@@ -317,44 +317,44 @@ const Header = () => {
                   </li>
                 </ul>
               </li>
-              <li class="demosHover">
+              <li className="demosHover">
                 <Link to={'/'} className='hover-link'>Demos</Link>
-                <ul class="demosHoverin">
-                  <li class="d-flex justify-content-evenly align-items-center">
-                    <ul class="d-flex flex-column align-items-center gap-3">
+                <ul className="demosHoverin">
+                  <li className="d-flex justify-content-evenly align-items-center">
+                    <ul className="d-flex flex-column align-items-center gap-3">
                       <li>
                         <img src={Post} alt="" />
                       </li>
                       <li><Link to={'/'}>Alvar EDD</Link></li>
                     </ul>
-                    <ul class="d-flex flex-column align-items-center gap-3">
+                    <ul className="d-flex flex-column align-items-center gap-3">
                       <li>
                         <img src={Post1} alt="" />
                       </li>
                       <li><Link to={'/'}>Rebel T-shirts</Link></li>
                     </ul>
-                    <ul class="d-flex flex-column align-items-center gap-3">
+                    <ul className="d-flex flex-column align-items-center gap-3">
                       <li>
                         <img src={Post2} alt="" />
                       </li>
                       <li><Link to={'/'}>Vario Preview Slider</Link></li>
                     </ul>
-                    <ul class="d-flex flex-column align-items-center gap-3">
+                    <ul className="d-flex flex-column align-items-center gap-3">
                       <li>
                         <img src={Post3} alt="" />
                       </li>
                       <li><Link to={'/'}>Porter Furniture</Link></li>
                     </ul>
-                    <ul class="d-flex flex-column align-items-center gap-3">
+                    <ul className="d-flex flex-column align-items-center gap-3">
                       <li>
                         <img src={Post4} alt="" />
                       </li>
                       <li><Link to={'/'}>Flock Furniture</Link></li>
                     </ul>
-                    <div class="btnhov">
+                    <div className="btnhov">
                       <Link to={'/'}>
                         <span>VIEW ALL </span>
-                        <i class="fa-solid fa-right-long"></i>
+                        <i className="fa-solid fa-right-long"></i>
                       </Link>
                     </div>
                   </li>
@@ -362,29 +362,29 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <div class="col-2 d-flex justify-content-evenly">
-            <div class="shopicon d-flex gap-2 align-items-center">
-              <Link to="/cart" class="position-relative">
-                <i class="fa-solid fa-cart-shopping fa-xl"></i>
-                <p class="cart-count">0</p>
+          <div className="col-2 d-flex justify-content-evenly">
+            <div className="shopicon d-flex gap-2 align-items-center">
+              <Link to="/cart" className="position-relative">
+                <i className="fa-solid fa-cart-shopping fa-xl"></i>
+                <p className="cart-count">0</p>
                 <span>Your cart is empty</span>
               </Link>
-              <Link to={'/'} class="position-relative d-none d-sm-block">
-                <i class="fa-regular fa-newspaper fa-xl"></i>
+              <Link to={'/'} className="position-relative d-none d-sm-block">
+                <i className="fa-regular fa-newspaper fa-xl"></i>
                 <span>Your wishlist is empty</span>
               </Link>
             </div>
-            <div class="usericon d-none d-lg-flex position-relative">
+            <div className="usericon d-none d-lg-flex position-relative">
               <div className='log-reg-wrapper'>
-                <i class="fa-regular fa-user fa-xl"></i>
+                <i className="fa-regular fa-user fa-xl"></i>
                 {
                   !jwt ? (
-                    <div class="d-flex flex-column">
+                    <div className="d-flex flex-column">
                       <Link to={'/login'}>Login</Link>
                       <Link to={'/register'}>Sign up</Link>
                     </div>
                   ) : (
-                    <div class="d-flex flex-column">
+                    <div className="d-flex flex-column">
                       <Link to={'/'}>Account Settings</Link>
                       <Link to={'/'} onClick={logOut}>Log Out</Link>
                     </div>
@@ -396,18 +396,18 @@ const Header = () => {
         </div>
 
       </header>
-      <div class="infohead row w-100 m-0 justify-content-evenly">
-        <div class="col-12 col-md-3">
-          <i class="fa-solid fa-truck"></i>
+      <div className="infohead row w-100 m-0 justify-content-evenly">
+        <div className="col-12 col-md-3">
+          <i className="fa-solid fa-truck"></i>
           <span><strong>Free Shipping</strong> on all orders over $100.</span>
         </div>
-        <div class="col-12 col-md-3">
-          <i class="fa-solid fa-check"></i>
+        <div className="col-12 col-md-3">
+          <i className="fa-solid fa-check"></i>
           <span
           ><strong> Worldwide Delivery</strong> and same day dispatch.
           </span>
         </div>
-        <div class="col-12 col-md-3">
+        <div className="col-12 col-md-3">
           <span><strong>Receive Gifts</strong> when you subscribe.</span>
         </div>
       </div>

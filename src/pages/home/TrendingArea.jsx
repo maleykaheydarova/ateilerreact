@@ -30,10 +30,10 @@ const TrendingArea = () => {
     return (
         <div className="trending-area">
             <div className="container">
-                <AreaTitle sectionTitle={"TRENDING THIS WEEK"} className={"area-title d-flex align-items-center justify-content-center justify-content-sm-between"}/>
+                <AreaTitle sectionTitle={"TRENDING THIS WEEK"} className={"area-title d-flex align-items-center justify-content-center justify-content-sm-between"} />
                 <div className="row">
-                    {Trends.map(trend => (
-                        <SingleTrend item={trend} />
+                    {Trends.map((trend, index) => (
+                        <SingleTrend item={trend} index={index} key={index}/>
                     ))}
                 </div>
             </div>

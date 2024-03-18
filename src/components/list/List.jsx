@@ -8,7 +8,7 @@ const List = ({ classname, heading, items }) => {
         <ul className={classname}>
             {heading ? <a href="#" className="hover-list-heading">{heading}</a> : null}
             {items?.map((elem, number) => (
-                <ListItem item={elem} index={number} />
+                <ListItem item={elem} key={number} />
             ))}
         </ul>
     );

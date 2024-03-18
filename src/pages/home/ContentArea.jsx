@@ -27,8 +27,8 @@ const ContentArea = () => {
             <div className="shop-content-area">
                 <div className="container">
                     <div className="row">
-                        {contents.map(content => (
-                            <SingleContent img={content.img} contentName={content.contentName} />
+                        {contents.map((content, index) => (
+                            <SingleContent img={content.img} contentName={content.contentName} key={index}/>
                         ))}
                     </div>
                 </div>

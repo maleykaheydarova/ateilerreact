@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const ListItem = ({item, index}) => {
+const ListItem = ({ item }) => {
     return (
-        <li key={index}>
+        <li>
             {typeof item === 'string' ? (
                 <a href='#'>{item}</a>
             ) : (

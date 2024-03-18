@@ -1,5 +1,5 @@
 
-const apiUrl = "https://localhost:44397/api";
+
 const token = localStorage.getItem('token');
 
 const isTokenExpired = () => {
@@ -25,4 +25,4 @@ const logOut = () => {
     window.location.reload();
 }
 
-export { apiUrl, isTokenExpired, logOut, token }
+export { isTokenExpired, logOut, token }

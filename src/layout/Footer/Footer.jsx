@@ -3,139 +3,139 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-4 onecol">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-4 onecol">
               <h3>About Atelier</h3>
-              <p class="my-4">
+              <p className="my-4">
                 Lorem ipsum dolor sit amet isse potenti. Vesquam ante aliquet
                 lacusemper elit. Cras neque nulla, convallis non commodo et,
                 euismod nonsese.
               </p>
               <p>
-                ©2023 Atelier · Made with<i class="fa-solid fa-heart mx-1"></i>
+                ©2023 Atelier · Made with<i className="fa-solid fa-heart mx-1"></i>
                 by Swift Ideas.
               </p>
             </div>
-            <div class="col-sm-4 twocol">
-              <h3 class="pb-1">Follow us</h3>
-              <ul class="d-flex flex-wrap gap-2">
-                <li class="twitter">
+            <div className="col-sm-4 twocol">
+              <h3 className="pb-1">Follow us</h3>
+              <ul className="d-flex flex-wrap gap-2">
+                <li className="twitter">
                   <a href="#">
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-twitter"></i>
+                    <i className="fa-brands fa-twitter"></i>
+                    <i className="fa-brands fa-twitter"></i>
                   </a>
                 </li>
-                <li class="facebook">
+                <li className="facebook">
                   <a href="#">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-facebook"></i>
+                    <i className="fa-brands fa-facebook"></i>
+                    <i className="fa-brands fa-facebook"></i>
                   </a>
                 </li>
-                <li class="dribble">
+                <li className="dribble">
                   <a href="#">
-                    <i class="fa-solid fa-basketball"></i>
-                    <i class="fa-solid fa-basketball"></i>
+                    <i className="fa-solid fa-basketball"></i>
+                    <i className="fa-solid fa-basketball"></i>
                   </a>
                 </li>
-                <li class="youtube">
+                <li className="youtube">
                   <a href="#">
-                    <i class="fa-brands fa-youtube"></i>
-                    <i class="fa-brands fa-youtube"></i>
+                    <i className="fa-brands fa-youtube"></i>
+                    <i className="fa-brands fa-youtube"></i>
                   </a>
                 </li>
-                <li class="vimeo">
+                <li className="vimeo">
                   <a href="#">
-                    <i class="fa-brands fa-vimeo"></i>
-                    <i class="fa-brands fa-vimeo"></i>
+                    <i className="fa-brands fa-vimeo"></i>
+                    <i className="fa-brands fa-vimeo"></i>
                   </a>
                 </li>
-                <li class="tumblr">
+                <li className="tumblr">
                   <a href="#">
-                    <i class="fa-brands fa-tumblr"></i>
-                    <i class="fa-brands fa-tumblr"></i>
+                    <i className="fa-brands fa-tumblr"></i>
+                    <i className="fa-brands fa-tumblr"></i>
                   </a>
                 </li>
-                <li class="skype">
+                <li className="skype">
                   <a href="#">
-                    <i class="fa-brands fa-skype"></i>
-                    <i class="fa-brands fa-skype"></i>
+                    <i className="fa-brands fa-skype"></i>
+                    <i className="fa-brands fa-skype"></i>
                   </a>
                 </li>
-                <li class="linkedin">
+                <li className="linkedin">
                   <a href="#">
-                    <i class="fa-brands fa-linkedin"></i>
-                    <i class="fa-brands fa-linkedin"></i>
+                    <i className="fa-brands fa-linkedin"></i>
+                    <i className="fa-brands fa-linkedin"></i>
                   </a>
                 </li>
-                <li class="googleplus">
+                <li className="googleplus">
                   <a href="#">
-                    <i class="fa-brands fa-google-plus"></i>
-                    <i class="fa-brands fa-google-plus"></i>
+                    <i className="fa-brands fa-google-plus"></i>
+                    <i className="fa-brands fa-google-plus"></i>
                   </a>
                 </li>
-                <li class="flickr">
+                <li className="flickr">
                   <a href="#">
-                    <i class="fa-brands fa-flickr"></i>
-                    <i class="fa-brands fa-flickr"></i>
+                    <i className="fa-brands fa-flickr"></i>
+                    <i className="fa-brands fa-flickr"></i>
                   </a>
                 </li>
-                <li class="pinterest">
+                <li className="pinterest">
                   <a href="#">
-                    <i class="fa-brands fa-pinterest"></i>
-                    <i class="fa-brands fa-pinterest"></i>
+                    <i className="fa-brands fa-pinterest"></i>
+                    <i className="fa-brands fa-pinterest"></i>
                   </a>
                 </li>
-                <li class="foursquare">
+                <li className="foursquare">
                   <a href="#">
-                    <i class="fa-brands fa-foursquare"></i>
-                    <i class="fa-brands fa-foursquare"></i>
+                    <i className="fa-brands fa-foursquare"></i>
+                    <i className="fa-brands fa-foursquare"></i>
                   </a>
                 </li>
-                <li class="instagram">
+                <li className="instagram">
                   <a href="#">
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-instagram"></i>
+                    <i className="fa-brands fa-instagram"></i>
+                    <i className="fa-brands fa-instagram"></i>
                   </a>
                 </li>
-                <li class="github">
+                <li className="github">
                   <a href="#">
-                    <i class="fa-brands fa-github"></i>
-                    <i class="fa-brands fa-github"></i>
+                    <i className="fa-brands fa-github"></i>
+                    <i className="fa-brands fa-github"></i>
                   </a>
                 </li>
-                <li class="xing">
+                <li className="xing">
                   <a href="#">
-                    <i class="fa-brands fa-xing"></i>
-                    <i class="fa-brands fa-xing"></i>
+                    <i className="fa-brands fa-xing"></i>
+                    <i className="fa-brands fa-xing"></i>
                   </a>
                 </li>
-                <li class="behance">
+                <li className="behance">
                   <a href="#">
-                    <i class="fa-brands fa-behance"></i>
-                    <i class="fa-brands fa-behance"></i>
+                    <i className="fa-brands fa-behance"></i>
+                    <i className="fa-brands fa-behance"></i>
                   </a>
                 </li>
-                <li class="soundcloud">
+                <li className="soundcloud">
                   <a href="#">
-                    <i class="fa-brands fa-soundcloud"></i>
-                    <i class="fa-brands fa-soundcloud"></i>
+                    <i className="fa-brands fa-soundcloud"></i>
+                    <i className="fa-brands fa-soundcloud"></i>
                   </a>
                 </li>
-                <li class="rss">
+                <li className="rss">
                   <a href="#">
-                    <i class="fa-solid fa-rss"></i>
-                    <i class="fa-solid fa-rss"></i>
+                    <i className="fa-solid fa-rss"></i>
+                    <i className="fa-solid fa-rss"></i>
                   </a>
                 </li>
               </ul>
             </div>
-            <div class="col-sm-4 threecol">
-              <h3 class="pb-4">Newsletter</h3>
+            <div className="col-sm-4 threecol">
+              <h3 className="pb-4">Newsletter</h3>
               <p>
                 <span>
                   <input
-                    class="w-100"
+                    className="w-100"
                     type="text"
                     placeholder="Enter your email to subscribe*"
                   />

@@ -71,8 +71,8 @@ const FeatureArea = () => {
                 <AreaTitle sectionTitle={'FEATURED ITEMS'} className={"area-title d-flex align-items-center justify-content-center justify-content-sm-between"} />
                 <div className="row">
                     {
-                        Features.map(feature => (
-                            <SingleFeature item={feature} />
+                        Features.map((feature, index) => (
+                            <SingleFeature item={feature} key={index} />
                         ))
                     }
                 </div>

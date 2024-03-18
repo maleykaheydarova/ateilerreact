@@ -1,6 +1,13 @@
-import React from "react";
+import React from 'react'
+import AddEntity from '../Components/AddEntity'
 
 const Add = () => {
-  return <div>Add</div>;
-};
-export default Add;
+
+  const propertyNames = ["Name", "Author", "Description", "Image"]
+
+  return (
+    <AddEntity entityName={"Post"} propertyNames={propertyNames} />
+  )
+}
+
+export default Add

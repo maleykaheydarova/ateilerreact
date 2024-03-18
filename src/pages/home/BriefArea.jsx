@@ -27,12 +27,12 @@ const BriefArea = () => {
     ]
 
     return (
-        <div class="brief-area">
-            <div class="container">
-                <div class="row">
+        <div className="brief-area">
+            <div className="container">
+                <div className="row">
                     {
-                        Briefs.map(brief => (
-                            <SingleBrief item={brief} />
+                        Briefs.map((brief, index) => (
+                            <SingleBrief item={brief} key={index}/>
                         ))
                     }
                 </div>

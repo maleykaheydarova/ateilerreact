@@ -8,7 +8,7 @@ const AreaTitle = ({ sectionTitle, className, icons, swiperRef }) => {
             <span className="section-title">{sectionTitle}</span>
             {
                 icons ?
-                    <div class="news-icons">
+                    <div className="news-icons">
                         <i
                             className="fa-solid fa-chevron-left"
                             id="news-move-left"

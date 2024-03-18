@@ -13,14 +13,14 @@ const MobileMenu = ({ refer, opacrefer }) => {
 
     return (
         <>
-            <div class="commonopac" ref={opacrefer}></div>
-            <div class="mobile-menu-wrap position-fixed" ref={refer}>
-                <div class="mobile-menu-inner">
-                    <div class="mob-menu-search">
+            <div className="commonopac" ref={opacrefer}></div>
+            <div className="mobile-menu-wrap position-fixed" ref={refer}>
+                <div className="mobile-menu-inner">
+                    <div className="mob-menu-search">
                         <input type="text" placeholder="Search" />
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i className="fa-solid fa-magnifying-glass"></i>
                     </div>
-                    <ul class="mob-menu-pages">
+                    <ul className="mob-menu-pages">
                         {menuItems.map((menuItem, index) => (
                             <li key={index}>
                                 <Link
@@ -31,28 +31,28 @@ const MobileMenu = ({ refer, opacrefer }) => {
                                     {menuItem.subMenuItems.length != 0 ? <i className={`fa-solid fa-chevron-down ${activeAccordion === index ? 'turn' : ''}`}></i> : null}
                                 </Link>
                                 {activeAccordion === index ? (
-                                    <List classname={"sub-menu active"} items={menuItem.subMenuItems} />
-                                ) : (<List classname={"sub-menu"} items={menuItem.subMenuItems} />)}
+                                    <List classname={"sub-menu active"} items={menuItem.subMenuItems}/>
+                                ) : (<List classname={"sub-menu"} items={menuItem.subMenuItems}/>)}
                             </li>
                         ))}
                     </ul>
-                    <ul class="mob-menu-pages">
+                    <ul className="mob-menu-pages">
                         <li>
                             <Link
                                 to={'/'}
-                                class="d-flex align-items-center justify-content-between"
+                                className="d-flex align-items-center justify-content-between"
                             >
                                 <span>Cart</span>
-                                <i class="fa-solid fa-shopping-cart"></i>
+                                <i className="fa-solid fa-shopping-cart"></i>
                             </Link>
                         </li>
                         <li>
                             <Link
                                 to={'/'}
-                                class="d-flex align-items-center justify-content-between"
+                                className="d-flex align-items-center justify-content-between"
                             >
                                 <span>Wishlist</span>
-                                <i class="fa-solid fa-clipboard-list"></i>
+                                <i className="fa-solid fa-clipboard-list"></i>
                             </Link>
                         </li>
                         <li>

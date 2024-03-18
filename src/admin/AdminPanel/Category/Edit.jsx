@@ -2,9 +2,9 @@ import React from 'react'
 import EditEntity from '../Components/EditEntity'
 
 const Edit = () => {
-    const properties = ["Name"]
+    const propertyNames = ["Name"]
     return (
-        <EditEntity entityName="Category" propertyNames={properties} />
+        <EditEntity entityName="Category" propertyNames={propertyNames} />
         // <main>
         //     <div class="container">
         //         <div class="row justify-content-center">

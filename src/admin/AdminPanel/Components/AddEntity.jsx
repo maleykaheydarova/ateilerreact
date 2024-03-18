@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { apiUrl, token } from '../../../Helpers/helper'
+import { token } from '../../../Helpers/helper'
+import { apiUrl } from '../../../Helpers/apiHelper'
 
 const AddEntity = ({ entityName, propertyNames }) => {
     const [errorMessages, setErrorMessages] = useState({});
@@ -15,11 +16,15 @@ const AddEntity = ({ entityName, propertyNames }) => {
 
     const imageExistence = Object.keys(formValues).some(key => key.toLowerCase().includes("image"));
 
+    useEffect(() => {
+        if (imageExistence) {
+            setFormValues(prevValues => ({ ...prevValues, "ImagePath": "" }))
+        }
+    }, [imageExistence])
+
     const handleInputChange = (property, value) => {
         setFormValues(prevValues => ({ ...prevValues, [property]: value }));
-        console.log(formValues);
     };
-
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -33,22 +38,21 @@ const AddEntity = ({ entityName, propertyNames }) => {
         }
 
         if (imageExistence) {
-            var data = new FormData();
-
-            Object.entries(formValues).forEach(([property, value]) => {
-                data.append(property, value);
-                if (property === 'image') {
-                    data.append("ImagePath", 'file');
-                }
-            });
-
+            setFormValues(prevValues => ({ ...prevValues, "ImagePath": 'asd' }))
+            headers['Content-Type'] = 'multipart/form-data'
+            // var data = new FormData();
+            // Object.entries(formValues).forEach(([property, value]) => {
+            //     data.append(property, value)
+            //     data.append("ImagePath", "asd")
+            // });
         }
 
         const response = await fetch(`${apiUrl}/${entityName}`, {
             method: 'POST',
             headers,
-            body: imageExistence ? data : JSON.stringify(formValues),
+            body: imageExistence ? formValues : JSON.stringify(formValues),
         });
+
         if (response.ok) {
             const res = await response.json();
             if (!res.success) {
@@ -84,29 +88,32 @@ const AddEntity = ({ entityName, propertyNames }) => {
                                         <div className="col-md-12 w-100">
                                             {propertyNames.map(property => (
                                                 property.toLowerCase().includes("image") ?
-                                                    (<div key={property} className="form-floating mb-3 mb-md-3">
-                                                        <input
-                                                            type="file"
-                                                            className="form-control w-100"
-                                                            id={property}
-                                                            onChange={(e) => handleInputChange(property.toLowerCase(), e.target.files[0])}
-                                                        />
-                                                        <label htmlFor={property} className="w-25">
-                                                            {property.charAt(0).toUpperCase() + property.slice(1)}
-                                                        </label>
-                                                        <p className='text-danger'>{errorMessages[property]}</p>
-                                                    </div>)
-                                                    : (
+                                                    (
+                                                        <div key={property} className="form-floating mb-3 mb-md-3">
+                                                            <input
+                                                                type="file"
+                                                                className="form-control w-100"
+                                                                id={property}
+                                                                onChange={(e) => handleInputChange(property.charAt(0).toLowerCase() + property.slice(1), e.target.files[0])}
+                                                            />
+                                                            <label htmlFor={property} className="w-25">
+                                                                {property}
+                                                            </label>
+                                                            <p className='text-danger'>{errorMessages["ImagePath"]}</p>
+                                                        </div>
+                                                    )
+                                                    :
+                                                    (
                                                         <div key={property} className="form-floating mb-3 mb-md-3">
                                                             <input
                                                                 type="text"
                                                                 className="form-control w-100"
                                                                 id={property}
                                                                 placeholder={`Enter ${property}`}
-                                                                onChange={(e) => handleInputChange(property.toLowerCase(), e.target.value)}
+                                                                onChange={(e) => handleInputChange(property.charAt(0).toLowerCase() + property.slice(1), e.target.value)}
                                                             />
                                                             <label htmlFor={property} className="w-25">
-                                                                {property.charAt(0).toUpperCase() + property.slice(1)}
+                                                                {property}
                                                             </label>
                                                             <p className='text-danger'>{errorMessages[property]}</p>
                                                         </div>
