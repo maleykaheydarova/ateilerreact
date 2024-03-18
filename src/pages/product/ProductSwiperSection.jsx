@@ -3,11 +3,11 @@ import ProductSwiper from './ProductSwiper'
 import AdditionalInfoSection from './AdditionalInfoSection'
 
 
-const ProductSwiperSection = () => {
+const ProductSwiperSection = ({refer, func}) => {
   return (
     <div class="container-lg container-fluid product-info-box">
       <div class="row pt-4 pb-5">
-        <ProductSwiper />
+        <ProductSwiper refer={refer} func={func}/>
         <div class="col-12 pt-3 col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-5 product-info bg-white">
           <div class="product-name">
             <div class="product-name-text d-flex justify-content-between">
